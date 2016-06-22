@@ -1,19 +1,21 @@
 {
-  "name": "tyvdh_gulp_boilerplate",
-  "version": "1.2.0",
+  "name": "UG Gulp",
+  "version": "2.0.0",
   "devDependencies": {
+    "connect-livereload": "^0.5.4",
     "gulp": "*",
     "gulp-autoprefixer": "*",
     "gulp-concat": "*",
-    "gulp-connect-php": "*",
+    "gulp-connect": "^4.1.0",
     "gulp-css-globbing": "*",
     "gulp-flatten": "*",
-    "gulp-gh-pages": "^0.5.4",
     "gulp-imagemin": "*",
     "gulp-livereload": "*",
     "gulp-newer": "*",
     "gulp-sass": "*",
+    "gulp-server-livereload": "^1.8.1",
     "gulp-sourcemaps": "*",
-    "gulp-uglify": "*"
+    "gulp-uglify": "*",
+    "gulp-open": "^2.0.0"
   }
 }
