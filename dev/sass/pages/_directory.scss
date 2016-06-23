@@ -1,0 +1,58 @@
+.project-directory{
+  background-color:$secondary;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  img{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  nav{
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    a{
+      color: $white;
+      background-color: $highlight;
+      width: 300px;
+      padding: 2rem;
+      margin: 10px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      span{
+        position: relative;
+        z-index: 1;
+      }
+      &:after{
+        opacity: 0;
+        content:"";
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: $highlight-l;
+      }
+      &:hover{
+        &:after{
+          animation: flicker .75s forwards alternate;
+        }
+      }
+    }
+  }
+}
