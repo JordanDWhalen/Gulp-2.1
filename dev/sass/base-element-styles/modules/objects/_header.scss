@@ -6,12 +6,19 @@ header.global{
     display: inline-block;
     height: 60px;
     width: 60px;
+    svg{
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
   nav.global{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    @include breakpoint(1024px) {
+      display: none;
+    }
     > *{
       margin: 0 1rem;
       height: 80px;
@@ -74,6 +81,26 @@ header.global{
           color: $white;
         }
       }
+    }
+  }
+  .menu{
+    height: 80px;
+    width: 80px;
+    border-right: 1px solid $offwhite;
+    padding: 2rem;
+    svg{
+      fill:$highlight;
+    }
+    &.open{
+      .menu-icon{
+        fill: $highlight-l;
+        #btop{
+          transform: rotate(45deg);
+        }
+      }
+    }
+    @include breakpoint(1024px, min-width) {
+      display: none;
     }
   }
 }

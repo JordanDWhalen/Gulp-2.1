@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     open = require('gulp-open'),
     fileinclude = require('gulp-file-include'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    filter    = require('gulp-filter');
 
 gulp.task('css', function() {
   return gulp.src('dev/sass/application.scss')
@@ -45,17 +46,14 @@ gulp.task('js', function() {
 });
 
 gulp.task('img', function() {
-  return gulp.src('dev/img/**/*.{jpg,jpeg,png,gif,svg,ico}')
+  return gulp.src('dev/img/**/*.{jpg,jpeg,png,gif,ico}')
     .pipe(flatten())
     .pipe(newer('public/img'))
     .pipe(imagemin({
       optimizationLevel: 5,
       progressive: true,
       interlaced: true,
-      svgoPlugins: [{
-        collapseGroups: false,
-        removeViewBox: false
-      }]
+      svgoPlugins: []
     }))
     .on('error', handleError)
     .pipe(gulp.dest('public/img'));
@@ -80,12 +78,15 @@ gulp.task('connect', function() {
   gulp.watch('dev/sass/**/**/*.scss', ['css']);
   gulp.watch('dev/js/vendor/*.js', ['vendor-js']);
   gulp.watch(['dev/js/**/*.js', '!dev/js/vendor/*.js'], ['js']);
-  gulp.watch('dev/img/**/*.{jpg,jpeg,png,gif,svg,ico}', ['img']);
+  gulp.watch('dev/img/**/*.{jpg,jpeg,png,gif,ico}', ['img']);
+  gulp.watch('public/img/**/*.svg', ['html']);
   gulp.watch('public/html/**/*.html', ['html']);
 
   livereload.listen();
 
-  gulp.watch(['public/*.html', 'public/js/*.js', 'public/img/**/*.{jpg,jpeg,png,gif,svg,ico}', 'public/css/*.css']).on('change', livereload.changed);
+  // SVG Sprite Version
+  // gulp.watch(['public/*.html', 'public/js/*.js', 'dev/img/**/*.svg', '.{svg,jpg,jpeg,png,gif,ico}', 'public/css/*.css']).on('change', livereload.changed);
+  gulp.watch(['public/*.html', 'public/js/*.js', '.{jpg,jpeg,png,gif,ico}', 'public/css/*.css']).on('change', livereload.changed);
 
   connect.server({
     root: 'public/',
