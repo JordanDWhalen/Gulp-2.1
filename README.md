@@ -35,6 +35,7 @@ The standard starter template for UG development projects.
 - [Gulp Newer](https://www.npmjs.com/package/gulp-newer): Speeds up livereload by only having it process new files.
 - [Gulp Sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps): Allows you to see where a line of CSS or JS originated when viewing things in the inspector.
 - [Gulp Open](https://www.npmjs.com/package/gulp-open): Opens up the default dev view of "localhost:8080"
+- [Gulp File Include](https://www.npmjs.com/package/gulp-file-include): This package allows us to modularize our HTML, and keep things ALOT more organized.
 
 ## Structure
 - dev: Folder containing all JavaScript and SCSS
@@ -53,6 +54,9 @@ The standard starter template for UG development projects.
   - css: Compiled SASS.
   - js: Compiled JS and libraries.
   - img: Compiled images.
+  - html: Uncompiled HTML files
+    - base-elements: Prepackaged HTML Modules easy to set up for a new project and reuse
+    - partials: New custom HTML partials specifically set up for this project
   - index.html: The default landing page for the project.
 
 ## Options
