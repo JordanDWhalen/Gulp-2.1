@@ -1,0 +1,29 @@
+.hero{
+  height: 50vh;
+  min-height: 350px;
+  max-height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  .content{
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .tint{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &.dark{
+    color: $white;
+  }
+  &.light{
+    color: $black;
+  }
+}

@@ -1,8 +1,11 @@
 function lightboxOpen(trigger){
 
-  var activeBox = trigger.attr("class").split(" ").pop();
+  var activeBox = trigger.attr("box");
 
-  $(".lightbox." + activeBox).addClass("open");
+  console.log(activeBox);
+
+  $(".lightbox[box='0']" ).addClass("open");
+
   positionFauxed(true);
 
 }
@@ -16,3 +19,17 @@ function lightboxClose(trigger){
   positionFauxed(false);
 
 }
+
+$(".lightbox-trigger").click( function(e){
+  e.preventDefault();
+
+  lightboxOpen($(this));
+
+});
+
+$(".lightbox .close").click(function(e){
+  e.preventDefault();
+
+  lightboxClose($(this));
+
+});

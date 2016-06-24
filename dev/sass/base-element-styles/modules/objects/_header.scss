@@ -1,0 +1,79 @@
+header.global{
+  display: flex;
+  justify-content: space-between;
+  .logo{
+    margin: 1rem;
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+  }
+  nav.global{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    > *{
+      margin: 0 1rem;
+      height: 80px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 1rem;
+      transition: .25s all ease;
+      &:hover{
+        background-color: $highlight;
+        color: $white;
+        a{
+          color: $white;
+        }
+      }
+      &.dropdown{
+        padding: 0;
+        a{
+          padding: 1rem;
+        }
+      }
+    }
+    > a{
+      padding: 1rem;
+    }
+    a{
+      text-decoration: none;
+    }
+  }
+  .dropdown{
+    &:hover{
+      .dropdown-content{
+        max-height: 100vh;
+        padding: 2rem;
+      }
+    }
+    &.mini{
+      position: relative;
+      .dropdown-content{
+        margin: 0 -2rem;
+        width: calc(100% + 4rem);
+      }
+    }
+    .dropdown-content{
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      padding: 0 2rem;
+      background-color: $highlight;
+      max-height: 0px;
+      overflow: hidden;
+      transition: .25s all ease;
+      nav{
+        display: flex;
+        flex-direction: column;
+        a{
+          color: $white;
+        }
+      }
+    }
+  }
+}

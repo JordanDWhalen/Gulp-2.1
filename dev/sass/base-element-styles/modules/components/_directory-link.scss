@@ -1,0 +1,30 @@
+.directory-link{
+  color: $white;
+  background-color: $highlight;
+  width: 300px;
+  padding: 2rem;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  span{
+    position: relative;
+    z-index: 1;
+  }
+  &:after{
+    opacity: 0;
+    content:"";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $highlight-l;
+  }
+  &:hover{
+    &:after{
+      animation: flicker .75s forwards alternate;
+    }
+  }
+}

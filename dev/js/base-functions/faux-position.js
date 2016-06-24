@@ -7,9 +7,6 @@ function positionFauxed(on){
   scrollAmount = parseInt(scrollAmount, 10);
   scrollAmount = scrollAmount * -1;
 
-  console.log(fakeScroll);
-  console.log(scrollAmount);
-
   if(on === true){
     $("main").addClass("noscroll");
     $("main").css("top", + (fakeScroll  * -1));

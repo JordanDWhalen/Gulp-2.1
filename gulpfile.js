@@ -64,7 +64,7 @@ gulp.task('img', function() {
 gulp.task('html', function() {
   return gulp.src('public/html/*.html')
     .pipe(fileinclude({
-      prefix: '--',
+      prefix: '@@',
       basepath: '@file'
     }))
     .on('error', handleError)
@@ -77,7 +77,7 @@ gulp.task('open', function(){
 });
 
 gulp.task('connect', function() {
-  gulp.watch('dev/sass/**/*.scss', ['css']);
+  gulp.watch('dev/sass/**/**/*.scss', ['css']);
   gulp.watch('dev/js/vendor/*.js', ['vendor-js']);
   gulp.watch(['dev/js/**/*.js', '!dev/js/vendor/*.js'], ['js']);
   gulp.watch('dev/img/**/*.{jpg,jpeg,png,gif,svg,ico}', ['img']);

@@ -1,0 +1,28 @@
+.lightbox{
+  position: fixed;
+  top: -100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparentize($highlight, .2);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  transition: .5s all ease;
+  .close{
+    height: 2rem;
+    width: 2rem;
+    background-image: url("../img/close.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+  &.open{
+    top: 0;
+  }
+}

@@ -7,35 +7,32 @@
   <link rel="stylesheet" href="../css/application.css" />
 </head>
 
-<body class="project-directory">
+<body>
 
-  --include('partials/header.html')
+  @@include('partials/header.html')
 
   <main>
 
-    <nav>
+   @@include('base-elements/objects/hero.html', {
+     "bg" : "img/bg.jpg",
+     "brightness": "dark",
+     "bg-color" : "rgba(0,0,0,0.25)",
+     "btn-classes": "lightbox-trigger",
+     "btn-attributes": "box='0'"
+   })
 
-    --include('base-elements/components/directory-link.html', {
+    <nav class="directory">
+
+    @@include('base-elements/components/directory-link.html', {
       "template": "t1",
       "page-name": "Home page"
     })
-    --include('base-elements/components/directory-link.html', {
-      "template": "t2",
-      "page-name": "Template 2"
-    })
-    --include('base-elements/components/directory-link.html', {
-      "template": "t3",
-      "page-name": "Template 3"
-    })
-    --include('base-elements/components/directory-link.html', {
-      "template": "t4",
-      "page-name": "Template 4"
-    })
 
+    </nav>
 
-  </nav>
-
-  --include('partials/footer.html')
+    @@include('base-elements/objects/lightbox.html', {
+      "count": "0"
+    })
 
   </main>
 
