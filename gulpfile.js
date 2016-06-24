@@ -20,6 +20,7 @@ gulp.task('css', function() {
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer({cascade: false}))
     .pipe(sourcemaps.write())
+    .on('error', handleError)
     .pipe(gulp.dest('public/css'));
 });
 
@@ -29,6 +30,7 @@ gulp.task('vendor-js', function() {
     .pipe(concat('application-vendor.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write())
+    .on('error', handleError)
     .pipe(gulp.dest('public/js'));
 });
 
@@ -38,6 +40,7 @@ gulp.task('js', function() {
     .pipe(concat('application.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write())
+    .on('error', handleError)
     .pipe(gulp.dest('public/js'));
 });
 
@@ -54,6 +57,7 @@ gulp.task('img', function() {
         removeViewBox: false
       }]
     }))
+    .on('error', handleError)
     .pipe(gulp.dest('public/img'));
 });
 
@@ -63,6 +67,7 @@ gulp.task('html', function() {
       prefix: '--',
       basepath: '@file'
     }))
+    .on('error', handleError)
     .pipe(gulp.dest('public/'));
 });
 
@@ -90,5 +95,11 @@ gulp.task('connect', function() {
   });
 
 });
+
+// Error reporting function
+function handleError(err) {
+  console.log(err.toString());
+  this.emit('end');
+}
 
 gulp.task('default', ['css', 'vendor-js', 'js', 'img', 'html', 'connect', 'open']);
