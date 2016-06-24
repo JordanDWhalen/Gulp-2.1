@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     connect = require('gulp-connect'),
     open = require('gulp-open'),
+    fileinclude = require('gulp-file-include'),
     livereload = require('gulp-livereload');
 
 gulp.task('css', function() {
@@ -56,6 +57,15 @@ gulp.task('img', function() {
     .pipe(gulp.dest('public/img'));
 });
 
+gulp.task('html', function() {
+  gulp.src('public/html/*.html')
+    .pipe(fileinclude({
+      prefix: '--',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest('public/'));
+});
+
 gulp.task('open', function(){
   gulp.src('')
   .pipe(open({ uri: 'http://localhost:8080'}));
@@ -66,6 +76,7 @@ gulp.task('connect', function() {
   gulp.watch('dev/js/vendor/*.js', ['vendor-js']);
   gulp.watch(['dev/js/**/*.js', '!dev/js/vendor/*.js'], ['js']);
   gulp.watch('dev/img/**/*.{jpg,jpeg,png,gif,svg,ico}', ['img']);
+  gulp.watch('public/html/**/*.html', ['html']);
 
   livereload.listen();
 
@@ -80,4 +91,4 @@ gulp.task('connect', function() {
 
 });
 
-gulp.task('default', ['css', 'vendor-js', 'js', 'img', 'connect', 'open']);
+gulp.task('default', ['css', 'vendor-js', 'js', 'img', 'html', 'connect', 'open']);

@@ -9,32 +9,28 @@
 
 <body class="project-directory">
 
-  <header class="global">
-  <div class="logo">
-    <img src="../img/ug.svg" alt="" />
-  </div>
-</header>
-
+  --include('partials/header.html')
 
   <main>
 
     <nav>
 
-    <a href="t1.html"><span>t1</span></a>
-
-    <a href="t2.html"><span>t2</span></a>
-
-    <a href="t3.html"><span>t3</span></a>
-
-    <a href="t4.html"><span>t4</span></a>
-
+    --include('base-elements/partials/directory-link.html', {
+      "template": "t1"
+    })
+    --include('base-elements/partials/directory-link.html', {
+      "template": "t2"
+    })
+    --include('base-elements/partials/directory-link.html', {
+      "template": "t3"
+    })
+    --include('base-elements/partials/directory-link.html', {
+      "template": "t4"
+    })
 
   </nav>
 
-  <footer class="global">
-  <h1>FOOTER</h1>
-</footer>
-
+  --include('partials/footer.html')
 
   </main>
 
