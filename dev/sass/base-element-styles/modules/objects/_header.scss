@@ -11,7 +11,7 @@ header.global{
       max-height: 100%;
     }
   }
-  nav.global{
+  & > nav.global{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,57 +46,160 @@ header.global{
     a{
       text-decoration: none;
     }
-  }
-  .dropdown{
-    &:hover{
-      .dropdown-content{
-        max-height: 100vh;
-        padding: 2rem;
+    .dropdown{
+      &:hover{
+        .dropdown-content{
+          max-height: 100vh;
+          padding: 2rem;
+        }
       }
-    }
-    &.mini{
-      position: relative;
-      .dropdown-content{
-        margin: 0 -2rem;
-        width: calc(100% + 4rem);
+      &.mini{
+        position: relative;
+        .dropdown-content{
+          margin: 0 -2rem;
+          width: calc(100% + 4rem);
+        }
       }
-    }
-    .dropdown-content{
-      position: absolute;
-      display: flex;
-      justify-content: space-between;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      z-index: 2;
-      padding: 0 2rem;
-      background-color: $highlight;
-      max-height: 0px;
-      overflow: hidden;
-      transition: .25s all ease;
-      nav{
+      .dropdown-content{
+        position: absolute;
         display: flex;
-        flex-direction: column;
-        a{
-          color: $white;
+        justify-content: space-between;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+        padding: 0 2rem;
+        background-color: $highlight;
+        max-height: 0px;
+        overflow: hidden;
+        transition: .25s all ease;
+        nav{
+          display: flex;
+          flex-direction: column;
+          a{
+            color: $white;
+          }
         }
       }
     }
+
   }
   .menu{
     height: 80px;
     width: 80px;
     border-right: 1px solid $offwhite;
-    padding: 2rem;
+    cursor: pointer;
+    transition: .25s all ease;
+    & > a{
+      display: inline-block;
+      pointer-events: all;
+      height: 80px;
+      padding: 2rem;
+    }
     svg{
       fill:$highlight;
+      pointer-events: none;
+      rect{
+        transform-origin: center;
+          transition: .25s transform ease;
+      }
+      #top{
+        transform: translateX(0) translateY(0) rotate(0);
+      }
+      #mid{
+        transform: translateX(0) translateY(0) rotate(0);
+        transform-origin: center;
+      }
+      #bot{
+        transform: translateY(0);
+      }
+    }
+    nav.global{
+      border-top: 1px solid $offwhite;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      z-index: 3;
+      background-color: $highlight;
+      max-height: 0px;
+      overflow: hidden;
+      transition: .25s all ease;
+      & > * {
+        text-align: center;
+        padding: 2rem;
+        border-bottom: 1px solid $offwhite;
+        color: $white;
+        text-decoration: none;
+        &.dropdown {
+          padding: 0;
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          & > a{
+            padding: 2rem;
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
     }
     &.open{
-      .menu-icon{
-        fill: $highlight-l;
-        #btop{
-          transform: rotate(45deg);
+      background-color: $highlight;
+      svg{
+        fill: $white;
+        #top{
+          transform: translateX(-5px) translateY(56px) rotate(45deg);
         }
+        #mid{
+          transform: translateX(-3px) translateY(-15px) rotate(-45deg);
+          transform-origin: center;
+        }
+        #bot{
+          transform: translateY(150%);
+        }
+      }
+
+      nav.global{
+        max-height: 3000px;
+      }
+
+    }
+    .dropdown{
+      a{
+        pointer-events: none;
+      }
+      .dropdown-content{
+        max-height: 0px;
+        overflow: hidden;
+        transition: .25s all ease;
+        background-color: $highlight-d;
+        width: 100%;
+        nav{
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          padding: 2rem;
+          width: 100%;
+        }
+        a{
+          color: $white;
+          text-decoration: none;
+          width: 100%;
+          border-bottom: 1px solid $offwhite;
+          padding: 2rem;
+          display: block;
+          &:last-of-type{
+            border:none;
+          }
+        }
+      }
+      &.open .dropdown-content{
+        max-height: 3000px;
       }
     }
     @include breakpoint(1024px, min-width) {
