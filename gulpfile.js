@@ -72,11 +72,6 @@ gulp.task('svg', function () {
         dest : 'svg'    // Keep the intermediate files
       },
       mode                : {
-        view : {         // Activate the «view» mode
-          dest : '.',
-          bust        : false,
-          sprite : 'sprite.view.svg'
-        },
         symbol : {
           dest : '.',
           sprite : 'sprite.symbol.svg'
