@@ -1,5 +1,7 @@
 // Markup reflected in base-elements/slider.html
 
+// TODO: Resetting layout on resize, currently the buttons become disabled whenever the grid changes.
+
 function ug_sliderLayout(){
 
   $(".ug.slider").each( function(index) {
