@@ -61,14 +61,26 @@ gulp.task('svg', function () {
             gutil.log(path.basename(name.replace(/\s+/g, this.whitespace), '.svg'));
             return path.basename(name.replace(/\s+/g, this.whitespace), '.svg');
           }
-        }
+        },
+        dimension       : {         // Set maximum dimensions
+          maxWidth    : 32,
+          maxHeight   : 32
+        },
+        spacing         : {         // Add padding
+          padding     : 10
+        },
+        dest : 'svg'    // Keep the intermediate files
       },
-      "mode": {
-        "symbol": true,
-        'symbol': {
-          'dest': '.',
-          'sprite': 'sprite.svg'
-        }
+      mode                : {
+        view : {         // Activate the «view» mode
+          dest : '.',
+          bust        : false,
+          sprite : 'sprite.view.svg'
+        },
+        symbol : {
+          dest : '.',
+          sprite : 'sprite.symbol.svg'
+        }     // Activate the «symbol» mode
       }
     }
   ))
@@ -89,12 +101,13 @@ gulp.task('img', function() {
   .pipe(gulp.dest('public/img'));
 });
 
-gulp.task('html', function() {
+gulp.task('html', ['svg'],  function() {
   return gulp.src('public/html/*.html')
   .pipe(fileinclude({
     prefix: '@@',
     basepath: '@file'
   }))
+  .pipe(newer('public/html/**/*.html'))
   .on('error', handleError)
   .pipe(gulp.dest('public/'));
 });
@@ -109,7 +122,7 @@ gulp.task('connect', function() {
   gulp.watch('dev/js/vendor/*.js', ['vendor-js']);
   gulp.watch(['dev/js/**/*.js', '!dev/js/vendor/*.js'], ['js']);
   gulp.watch('dev/img/**/*.{jpg,jpeg,png,gif,ico}', ['img']);
-  gulp.watch('dev/img/**/*.{svg}', ['svg']);
+  gulp.watch('dev/img/**/*.svg', ['svg']);
   gulp.watch('public/img/**/*.svg', ['html']);
   gulp.watch('public/html/**/*.html', ['html']);
 

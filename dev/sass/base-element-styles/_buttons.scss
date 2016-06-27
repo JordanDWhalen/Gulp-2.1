@@ -49,3 +49,13 @@
     }
   }
 }
+
+
+.arrow{
+  text-indent: -9999px;
+  &.prev{
+    background-image: url("../img/sprite.view.svg#arrow");
+    background-size: 1rem;
+  }
+  &.next{}
+}

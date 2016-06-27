@@ -27,12 +27,49 @@ h6 { font-size: $h6; line-height: 1.6;  letter-spacing: 0; }
 
 p {
   margin-top: 0;
+  max-width: 80rem;
   &:last-of-type{
     margin-bottom: 2rem;
   }
   & + p{
     margin-top: 1rem;
   }
+}
+
+b{
+  font-weight: 700;
+}
+
+i{
+  font-style: italic;
+}
+
+blockquote{
+  max-width: 80rem;
+  padding: 1rem;
+  background-color: $grey-l;
+  border-radius: 3px;
+  &:before{
+      color: $grey;
+      content: '\201C';
+      font-weight: 900;
+      font-size: 2.5rem;
+      display: inline-block;
+      height: 1rem;
+      margin-top: -1rem;
+    }
+    &:after{
+      color: $grey;
+      content: '\201C';
+      transform: scaleX(-1) scaleY(-1);
+      font-weight: 900;
+      font-size: 2.5rem;
+      display: inline-block;
+      height: 1rem;
+      margin-top: -1rem;
+      position: relative;
+      bottom: -2rem;
+    }
 }
 
 // Link styling

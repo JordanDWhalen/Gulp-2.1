@@ -1,6 +1,11 @@
 .ug.container{
   max-width: 1350px;
+  width: 100%;
   margin: 0 auto;
+  &.text{
+    max-width: 80rem;
+    padding: 5rem 0;
+  }
   @include breakpoint(1400px) {
     padding: 0 2rem;
   }

@@ -62,8 +62,8 @@ function ug_viewAllLayout(currentWrapper, currentSliderClass, currentSlides, but
     $(currentWrapper).addClass("line");
     $(currentWrapper).removeClass("grid");
 
-    $(".ug.grid-slider." + currentSliderClass + " .left").removeClass("hidden");
-    $(".ug.grid-slider." + currentSliderClass + " .right").removeClass("hidden");
+    $(".ug.grid-slider." + currentSliderClass + " .prev").removeClass("hidden");
+    $(".ug.grid-slider." + currentSliderClass + " .next").removeClass("hidden");
 
     $(currentWrapper).css("transform", "translateX(0)");
     $(currentWrapper).attr("data-shift-amount", "0");
@@ -80,8 +80,8 @@ function ug_viewAllLayout(currentWrapper, currentSliderClass, currentSlides, but
     $(currentWrapper).removeClass("line");
     $(currentWrapper).addClass("grid");
 
-    $(".ug.grid-slider." + currentSliderClass + " .left").addClass("hidden");
-    $(".ug.grid-slider." + currentSliderClass + " .right").addClass("hidden");
+    $(".ug.grid-slider." + currentSliderClass + " .prev").addClass("hidden");
+    $(".ug.grid-slider." + currentSliderClass + " .next").addClass("hidden");
 
     $(currentWrapper).css("transform", "translateX(0)");
     $(currentWrapper).attr("data-shift-amount", "0");
@@ -97,7 +97,7 @@ function ug_viewAllLayout(currentWrapper, currentSliderClass, currentSlides, but
 function ug_gridSliderDefaults() {
   $(".ug.grid-slider").each( function(index, value) {
     $(this).children().children(".slide-wrapper").children().children().first().addClass("active");
-    $(this).children().children(".lead").children().children(".left").addClass("disabled");
+    $(this).children().children(".lead").children().children(".prev").addClass("disabled");
     $(this).children().children(".slide-wrapper").attr("data-shift-amount", "0");
 
     var slideNumber = $(this).children().children(".slide-wrapper").children().children(".slide").length;
@@ -123,8 +123,8 @@ function ug_viewAllDefaults() {
       $(currentWrapper).removeClass("line");
       $(currentWrapper).addClass("grid");
 
-      $(".ug.grid-slider." + currentSliderClass + " .left").addClass("hidden");
-      $(".ug.grid-slider." + currentSliderClass + " .right").addClass("hidden");
+      $(".ug.grid-slider." + currentSliderClass + " .prev").addClass("hidden");
+      $(".ug.grid-slider." + currentSliderClass + " .next").addClass("hidden");
 
       $(currentWrapper).css("transform", "translateX(0)");
       $(currentWrapper).attr("data-shift-amount", "0");
@@ -153,14 +153,14 @@ function ug_gridSliderActiveSet() {
 // Creating a function to disable the arrow buttons based on slide position
 function ug_disabledButtons(currentSliderClass, currentAmount, potentialShift) {
   if(currentAmount === potentialShift){
-    $(".ug.grid-slider." + currentSliderClass + " .right").addClass("disabled");
+    $(".ug.grid-slider." + currentSliderClass + " .next").addClass("disabled");
     if ( currentAmount !== 0 ){
-      $(".ug.grid-slider." + currentSliderClass + " .left").removeClass("disabled");
+      $(".ug.grid-slider." + currentSliderClass + " .prev").removeClass("disabled");
     }
   } else if( currentAmount === 0 ) {
-    $(".ug.grid-slider." + currentSliderClass + " .left").addClass("disabled");
+    $(".ug.grid-slider." + currentSliderClass + " .prev").addClass("disabled");
     if ( currentAmount !== potentialShift ){
-      $(".ug.grid-slider." + currentSliderClass + " .right").removeClass("disabled");
+      $(".ug.grid-slider." + currentSliderClass + " .next").removeClass("disabled");
     }
   } else {
     $(".ug.grid-slider." + currentSliderClass + " .button").removeClass("disabled");
@@ -229,11 +229,11 @@ $(".ug.grid-slider .button").click(function(e){
   potentialShift = (parseInt(currentWrapper.children().children(".slide").length, 10) - 1) * shiftAmount * -1,
   currentAmount = parseInt(currentWrapper.attr("data-shift-amount"), 0);
 
-  if(type === "right"){
+  if(type === "next"){
 
     ug_slideRight(currentAmount, shiftAmount, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift);
 
-  } else if (type === "left"){
+  } else if (type === "prev"){
 
     ug_slideLeft(currentAmount, shiftAmount, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift);
 
