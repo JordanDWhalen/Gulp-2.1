@@ -8,8 +8,6 @@ function ug_gridSliderLayout(){
 
     products = $(".ug.grid-slider." + sliderNumber + " .wrapper a");
 
-    console.log(products);
-
     if( products.parent().is(".slide") ) {
 
       products.unwrap();
@@ -68,7 +66,7 @@ function ug_viewAllLayout(currentWrapper, currentSliderClass, currentSlides, but
     $(".ug.grid-slider." + currentSliderClass + " .next").removeClass("hidden");
 
     $(currentWrapper).css("transform", "translateX(0)");
-    $(currentWrapper).attr("data-shift-amount", "0");
+    $(currentWrapper).attr("slide-shown", "0");
 
     $(currentWrapper).children(".wrapper").removeClass("view-all");
     $(currentSlides).attr("class", "slide");
@@ -86,7 +84,7 @@ function ug_viewAllLayout(currentWrapper, currentSliderClass, currentSlides, but
     $(".ug.grid-slider." + currentSliderClass + " .next").addClass("hidden");
 
     $(currentWrapper).css("transform", "translateX(0)");
-    $(currentWrapper).attr("data-shift-amount", "0");
+    $(currentWrapper).attr("slide-shown", "0");
 
     $(currentWrapper).children(".wrapper").addClass("view-all");
     $(currentSlides).attr("class", "slide active");
@@ -100,7 +98,7 @@ function ug_gridSliderDefaults() {
   $(".ug.grid-slider").each( function(index, value) {
     $(this).children().children(".slide-wrapper").children().children().first().addClass("active");
     $(this).children().children(".lead").children().children(".prev").addClass("disabled");
-    $(this).children().children(".slide-wrapper").attr("data-shift-amount", "0");
+    $(this).children().children(".slide-wrapper").attr("slide-shown", "0");
 
     var slideNumber = $(this).children().children(".slide-wrapper").children().children(".slide").length;
 
@@ -129,7 +127,7 @@ function ug_viewAllDefaults() {
       $(".ug.grid-slider." + currentSliderClass + " .next").addClass("hidden");
 
       $(currentWrapper).css("transform", "translateX(0)");
-      $(currentWrapper).attr("data-shift-amount", "0");
+      $(currentWrapper).attr("slide-shown", "0");
 
       $(currentWrapper).children(".wrapper").addClass("view-all");
       $(currentSlides).attr("class", "slide active");
@@ -143,7 +141,7 @@ function ug_viewAllDefaults() {
 // Setting the first slide active
 function ug_gridSliderActiveSet() {
   $(".ug.grid-slider .slide-wrapper").each( function(){
-    var slideAmount = $(this).attr("data-shift-amount"),
+    var slideAmount = $(this).attr("slide-shown"),
     activeSlide = (slideAmount * -1 / 100) + 1,
     slideNumber = $(this).children().length;
 
@@ -153,56 +151,66 @@ function ug_gridSliderActiveSet() {
 }
 
 // Creating a function to disable the arrow buttons based on slide position
-function ug_disabledButtons(currentSliderClass, currentAmount, potentialShift) {
-  if(currentAmount === potentialShift){
+function ug_disabledButtons( currentSliderClass ) {
+
+  var slideTotal = ($(".ug.grid-slider." + currentSliderClass + " .wrapper .slide").length) - 1,
+      currentSlide = parseInt($(".ug.grid-slider." + currentSliderClass + " .slide-wrapper").attr("slide-shown"));
+
+      console.log("Current Slide: " + currentSlide);
+      console.log("Slide Total: " + (slideTotal))
+      console.log(".ug.grid-slider." + currentSliderClass + " .slide-wrapper");
+
+
+  if( currentSlide === (slideTotal)){
     $(".ug.grid-slider." + currentSliderClass + " .next").addClass("disabled");
-    if ( currentAmount !== 0 ){
+    if ( currentSlide !== 0 ){
       $(".ug.grid-slider." + currentSliderClass + " .prev").removeClass("disabled");
     }
-  } else if( currentAmount === 0 ) {
+  } else if( currentSlide === 0 ) {
     $(".ug.grid-slider." + currentSliderClass + " .prev").addClass("disabled");
-    if ( currentAmount !== potentialShift ){
+    if ( currentSlide !== slideTotal ){
       $(".ug.grid-slider." + currentSliderClass + " .next").removeClass("disabled");
     }
   } else {
     $(".ug.grid-slider." + currentSliderClass + " .button").removeClass("disabled");
   }
 
-  if (potentialShift === 0) {
-    console.log("No shit");
-  }
-
 }
 
 // Setting up functions for shifting the sliders appropriately
-function ug_slideLeft(currentAmount, shiftAmount, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift){
 
-  currentAmount = currentAmount + shiftAmount;
+function ug_slideLeft(currentSlide, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift){
+
+  currentSlide--;
+
+  slideAmount = currentSlide * -100;
 
   // $(currentWrapper).velocity({ translateX: currentAmount + "%" }, { duration: 500, easing: "swing"});
-  $(currentWrapper).css("transform", "translateX(" + currentAmount + "%)");
-  $(currentWrapper).attr("data-shift-amount", currentAmount);
+  $(currentWrapper).css("transform", "translateX(" + slideAmount + "%)");
+  $(currentWrapper).attr("slide-shown", currentSlide);
   $(currentActiveSlide).prev().addClass("active");
   $(currentActiveSlide).removeClass("active");
 
   setTimeout(function(){
-    ug_disabledButtons(currentSliderClass, currentAmount, potentialShift);
+    ug_disabledButtons(currentSliderClass);
   }, 50)
 
 }
 
-function ug_slideRight(currentAmount, shiftAmount, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift){
+function ug_slideRight(currentSlide, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift){
 
-  currentAmount = currentAmount - shiftAmount;
+  currentSlide++;
+
+  slideAmount = currentSlide * -100;
 
   // $(currentWrapper).velocity({ translateX: currentAmount + "%" }, { duration: 500, easing: "swing"});
-  $(currentWrapper).css("transform", "translateX(" + currentAmount + "%)");
-  $(currentWrapper).attr("data-shift-amount", currentAmount);
-  $(currentActiveSlide).next().addClass("active");
+  $(currentWrapper).css("transform", "translateX(" + slideAmount + "%)");
+  $(currentWrapper).attr("slide-shown", currentSlide);
+  $(currentActiveSlide).prev().addClass("active");
   $(currentActiveSlide).removeClass("active");
 
   setTimeout(function(){
-    ug_disabledButtons(currentSliderClass, currentAmount, potentialShift);
+    ug_disabledButtons(currentSliderClass);
   }, 50)
 
 }
@@ -223,21 +231,20 @@ $(".ug.grid-slider .button").click(function(e){
   e.preventDefault();
   var button = $(this),
   type = $(this).attr("class").split(" ").pop(),
-  currentSliderClass = $(this).parent().parent().parent().parent().attr("class").split(" ").pop(),
+  currentSliderClass = $(this).parents(".grid-slider").attr("class").split(" ").pop(),
   currentWrapper = $(this).parent().parent().parent().children(".slide-wrapper"),
   currentSlides = currentWrapper.children().children(".slide"),
   currentActiveSlide = currentWrapper.children().children(".active"),
-  shiftAmount = 100,
-  potentialShift = (parseInt(currentWrapper.children().children(".slide").length, 10) - 1) * shiftAmount * -1,
-  currentAmount = parseInt(currentWrapper.attr("data-shift-amount"), 0);
+
+  currentAmount = parseInt(currentWrapper.attr("slide-shown"), 0);
 
   if(type === "next"){
 
-    ug_slideRight(currentAmount, shiftAmount, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift);
+    ug_slideRight(currentAmount, currentWrapper, currentActiveSlide, currentSliderClass);
 
   } else if (type === "prev"){
 
-    ug_slideLeft(currentAmount, shiftAmount, currentWrapper, currentActiveSlide, currentSliderClass, potentialShift);
+    ug_slideLeft(currentAmount, currentWrapper, currentActiveSlide, currentSliderClass);
 
   } else if ( type === "view-all" ){
 
@@ -245,7 +252,7 @@ $(".ug.grid-slider .button").click(function(e){
 
   }
 
-  ug_disabledButtons(currentSliderClass, currentAmount, potentialShift);
+  ug_disabledButtons(currentSliderClass);
 
 });
 
@@ -254,13 +261,12 @@ $(".ug.grid-slider .product").click( function(e){
   var parentSlide = $(this).parent(),
   currentWrapper = $(this).parent().parent().parent(),
   currentSliderClass = currentWrapper.parent().parent().attr("class").split(" ").pop(),
-  currentAmount = parseInt(currentWrapper.attr("data-shift-amount"), 0),
+  currentAmount = parseInt(currentWrapper.attr("slide-shown"), 0),
   shiftAmount = 100,
   potentialShift = (parseInt(currentWrapper.children().children(".slide").length, 10) - 1) * shiftAmount * -1,
   currentSlides = currentWrapper.children().children(".slide"),
   currentActiveSlide = currentWrapper.children().children(".active");
 
-  // console.log(currentSliderClass);
 
 
   if( !parentSlide.hasClass("active") ){

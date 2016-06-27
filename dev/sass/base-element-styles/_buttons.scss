@@ -70,12 +70,23 @@
 
 .arrow{
   text-indent: -9999px;
-  background-image: url("../img/sprite.stack.svg#arrow");
-  background-size: 3rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  &.prev{
-    transform: rotate(180deg);
+  position: relative;
+  &:after{
+    top: 0;
+    left: 0;
+    content:"";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: url("../img/sprite.stack.svg#arrow");
+    background-size: 3rem;
+    background-position: center;
+    background-repeat: no-repeat;
   }
-  &.next{}
+  &.prev{
+    &:after{
+      transform: rotate(180deg);
+    }
+  }
 }
