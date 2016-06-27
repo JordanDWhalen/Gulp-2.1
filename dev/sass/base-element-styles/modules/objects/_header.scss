@@ -25,7 +25,7 @@ header.ug.global{
       display: inline-flex;
       align-items: center;
       padding: 0 1rem;
-      transition: .25s all ease;
+      transition: $transition;
       &:hover{
         background-color: $highlight;
         color: $white;
@@ -72,7 +72,7 @@ header.ug.global{
         background-color: $highlight;
         max-height: 0px;
         overflow: hidden;
-        transition: .25s all ease;
+        transition: $transition;
         nav{
           display: flex;
           flex-direction: column;
@@ -89,7 +89,7 @@ header.ug.global{
     width: 80px;
     border-right: 1px solid $offwhite;
     cursor: pointer;
-    transition: .25s all ease;
+    transition: $transition;
     & > a{
       display: inline-block;
       pointer-events: all;
@@ -127,7 +127,7 @@ header.ug.global{
       background-color: $highlight;
       max-height: 0px;
       overflow: hidden;
-      transition: .25s all ease;
+      transition: $transition;
       & > * {
         text-align: center;
         padding: 2rem;
@@ -176,7 +176,7 @@ header.ug.global{
       .dropdown-content{
         max-height: 0px;
         overflow: hidden;
-        transition: .25s all ease;
+        transition: $transition;
         background-color: $highlight-d;
         width: 100%;
         nav{

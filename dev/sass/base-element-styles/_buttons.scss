@@ -20,17 +20,24 @@
   -webkit-appearance: none;
   -moz-appearance: none;
 
+  transition: $transition;
+
   &:hover{
     color: $white;
     background-color: $highlight-l;
     border: 1px solid $highlight-l;
   }
 
-  &:focus{
+  &:active{
     color: $white;
     background-color: $highlight-d;
     border: 1px solid $highlight-d;
     transform: translateY(3px);
+    &:hover{
+      color: $white;
+      background-color: $highlight;
+      border: 1px solid $highlight;
+    }
   }
 
   &.hollow{
@@ -48,16 +55,27 @@
       transform: translateY(3px);
     }
   }
+
+  &.disabled{
+    opacity: .5;
+    &:hover{
+      color: $white;
+      background-color: $highlight;
+      border: 1px solid $highlight;
+    }
+  }
+
 }
 
 
 .arrow{
   text-indent: -9999px;
+  background-image: url("../img/sprite.stack.svg#arrow");
+  background-size: 3rem;
+  background-position: center;
+  background-repeat: no-repeat;
   &.prev{
-    background-image: url("../img/sprite.stack.svg#arrow");
-    background-size: 3rem;
-    background-position: center;
-    background-repeat: no-repeat;
+    transform: rotate(180deg);
   }
   &.next{}
 }

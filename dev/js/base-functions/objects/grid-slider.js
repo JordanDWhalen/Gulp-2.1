@@ -8,6 +8,8 @@ function ug_gridSliderLayout(){
 
     products = $(".ug.grid-slider." + sliderNumber + " .wrapper a");
 
+    console.log(products);
+
     if( products.parent().is(".slide") ) {
 
       products.unwrap();

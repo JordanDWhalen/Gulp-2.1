@@ -68,7 +68,7 @@
       }
     }
     .button{
-      transition: .5s opacity ease;
+      transition: $transition;
       margin-left: 1rem;
       &.view-all{
         text-align: center;

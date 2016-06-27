@@ -1,9 +1,6 @@
 .ug.grid-slider{
   background-color: $white;
   padding: 5rem;
-  border: 10px solid $highlight;
-  border-top: 12px solid $highlight;
-  border-bottom: 1px solid $highlight;
   overflow: hidden;
   @include breakpoint(1015px) {
     padding: 2rem 3rem;
@@ -44,7 +41,7 @@
   .slide-wrapper{
     margin: 0 -1rem;
     width: auto;
-    transition: .5s all ease;
+    transition: $transition;
     @include breakpoint(1215px) {
       padding: 0 .5rem;
     }
@@ -54,7 +51,7 @@
       margin: 0;
     }
     &.line{
-      transition: .5s all ease;
+      transition: $transition;
     }
   }
 
