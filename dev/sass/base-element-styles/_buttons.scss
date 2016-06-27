@@ -54,8 +54,10 @@
 .arrow{
   text-indent: -9999px;
   &.prev{
-    background-image: url("../img/sprite.view.svg#arrow");
-    background-size: 1rem;
+    background-image: url("../img/sprite.stack.svg#arrow");
+    background-size: 3rem;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   &.next{}
 }

@@ -80,7 +80,11 @@ gulp.task('svg', function () {
         symbol : {
           dest : '.',
           sprite : 'sprite.symbol.svg'
-        }     // Activate the «symbol» mode
+        },     // Activate the «symbol» mode
+        stack : {
+          dest: ".",
+          sprite : 'sprite.stack.svg'
+        }
       }
     }
   ))
