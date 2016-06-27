@@ -13,7 +13,9 @@ open = require('gulp-open'),
 svg = require('gulp-svg-sprite'),
 fileinclude = require('gulp-file-include'),
 livereload = require('gulp-livereload'),
-filter    = require('gulp-filter');
+filter    = require('gulp-filter'),
+gutil = require('gulp-util'),
+path = require('path');
 
 gulp.task('css', function() {
   return gulp.src('dev/sass/application.scss')
@@ -50,11 +52,14 @@ gulp.task('svg', function () {
   return gulp.src('dev/**/*.svg')
   .pipe(svg(
     {
-      "dest": "dev/img/",
-      "shape": {
-        "id": {
-          "generator": function(name) {
-            return name;
+      "dest": ".",
+      shape: {
+        id: {
+          generator: function(name) {
+            gutil.log(name);
+            gutil.log(this.whitespace);
+            gutil.log(path.basename(name.replace(/\s+/g, this.whitespace), '.svg'));
+            return path.basename(name.replace(/\s+/g, this.whitespace), '.svg');
           }
         }
       },
@@ -67,7 +72,6 @@ gulp.task('svg', function () {
       }
     }
   ))
-  .on('error', handleError)
   .pipe(gulp.dest("public/img/"));
 });
 
