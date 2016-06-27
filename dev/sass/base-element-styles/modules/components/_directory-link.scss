@@ -23,6 +23,7 @@
     background-color: $highlight-l;
   }
   &:hover{
+    color: $white;
     &:after{
       animation: flicker .75s forwards alternate;
     }

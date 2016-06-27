@@ -1,0 +1,10 @@
+.ug.container{
+  max-width: 1350px;
+  margin: 0 auto;
+  @include breakpoint(1400px) {
+    padding: 0 2rem;
+  }
+  @include breakpoint(900px) {
+    padding: 0 1rem;
+  }
+}

@@ -37,7 +37,7 @@ gulp.task('vendor-js', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src(['dev/js/*/*.js', 'dev/js/*.js', '!dev/js/vendor/*.js'])
+  return gulp.src(['dev/js/*.js',  'dev/js/**/*.js', '!dev/js/vendor/*.js'])
   .pipe(sourcemaps.init())
   .pipe(concat('application.js'))
   .pipe(uglify())
@@ -50,7 +50,14 @@ gulp.task('svg', function () {
   return gulp.src('dev/**/*.svg')
   .pipe(svg(
     {
-      "dest": ".",
+      "dest": "dev/img/",
+      "shape": {
+        "id": {
+          "generator": function(name) {
+            return name;
+          }
+        }
+      },
       "mode": {
         "symbol": true,
         'symbol': {
@@ -58,7 +65,6 @@ gulp.task('svg', function () {
           'sprite': 'sprite.svg'
         }
       }
-
     }
   ))
   .on('error', handleError)

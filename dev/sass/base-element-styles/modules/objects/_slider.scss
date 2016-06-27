@@ -1,0 +1,21 @@
+.ug.slider{
+  .container{
+    overflow: hidden;
+  }
+  .slide-wrapper{
+    display: flex;
+  }
+  .slide{
+    display: flex;
+  }
+  .slide-item{
+    img{
+      max-width: 100%;
+    }
+  }
+  .arrows{
+    .disabled{
+      pointer-events: none;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-header.global{
+header.ug.global{
   display: flex;
   justify-content: space-between;
   .logo{
@@ -198,8 +198,16 @@ header.global{
           }
         }
       }
-      &.open .dropdown-content{
-        max-height: 3000px;
+      &.open {
+        & > a{
+          pointer-events: all;
+          display: block;
+          position: relative;
+          z-index: 4;
+        }
+        .dropdown-content{
+          max-height: 3000px;
+        }
       }
     }
     @include breakpoint(1024px, min-width) {

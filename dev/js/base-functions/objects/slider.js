@@ -1,13 +1,15 @@
 // Markup reflected in base-elements/slider.html
 
-function sliderLayout(){
+function ug_sliderLayout(){
 
-  $(".slider").each( function() {
+  $(".ug.slider").each( function() {
 
     var self = $(this),
     slideWrapper = self.find(".slide-wrapper"),
     count = slideWrapper.find(".slide").length,
     width = 100 * count + "%";
+
+    $(this).children(".arrows .prev").addClass("disabled");
 
     slideWrapper.css("width", width);
     self.attr("slide-shown", "0");
@@ -16,9 +18,9 @@ function sliderLayout(){
 
 }
 
-function sliderShift(arrow){
+function ug_sliderShift(arrow){
 
-  self = arrow.parents(".slider"),
+  self = arrow.parents(".ug.slider"),
   slideWrapper = self.find(".slide-wrapper"),
   count = self.find(".slide").length,
   slideAmount = 100 / count,
@@ -65,3 +67,12 @@ function sliderShift(arrow){
   }
 
 }
+
+
+$(".ug.slider .arrows a").click( function(e){
+  e.preventDefault();
+  ug_sliderShift($(this));
+});
+
+
+ug_sliderLayout();

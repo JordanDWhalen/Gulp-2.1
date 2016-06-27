@@ -1,0 +1,101 @@
+.ug.grid-slider{
+  .controls{
+    display: inline-flex;
+    height: 50px;
+    @include breakpoint(815px) {
+      display: block;
+      margin-top: 1rem;
+      width: 100%;
+      .button.left, .button.right{
+        float: left;
+        margin: 0 1rem 0 0;
+      }
+      .view-all{
+        float: right;
+      }
+    }
+
+    h3{
+      font-size: 2rem;
+      line-height: 3rem;
+      font-weight: 400;
+    }
+    &.full{
+      width: 100%;
+      display: block;
+      padding: 2rem 0;
+      height: auto;
+      border: 10px solid $highlight;
+      border-bottom: none;
+      background-color: $white;
+
+      @include breakpoint(815px) {
+        border-width: 5px 5px 1px 5px;
+      }
+
+      @include breakpoint(650px) {
+        border-width: 1px;
+        padding: 1rem 0;
+        .wrapper{
+          padding: 0 1rem;
+        }
+      }
+
+      .container{
+        display: flex;
+        justify-content: space-between;
+        @include breakpoint(915px) {
+          .button{
+            display: none;
+          }
+        }
+      }
+      .form-field, .button{
+        margin: 0;
+      }
+      .form-fields{
+        display: flex;
+        @include breakpoint(915px) {
+          justify-content: space-between;
+          label{
+            display: none;
+          }
+          width: 100%;
+        }
+        > * + *{
+          margin-left: 1rem;
+        }
+      }
+    }
+    .button{
+      transition: .5s opacity ease;
+      margin-left: 1rem;
+      &.view-all{
+        text-align: center;
+      }
+      &.disabled{
+        pointer-events: none;
+        opacity: .5;
+      }
+      &.hidden{
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    .form-fields{
+      display: flex;
+      > * + *{
+        margin-left: 1rem;
+      }
+    }
+    .form-field{
+      margin-left: 2rem;
+      display: flex;
+      align-items: center;
+      label{
+        margin-right: .5rem;
+      }
+    }
+  }
+
+}

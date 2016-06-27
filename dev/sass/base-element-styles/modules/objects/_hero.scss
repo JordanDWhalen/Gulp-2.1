@@ -1,7 +1,5 @@
-.hero{
-  height: 50vh;
-  min-height: 350px;
-  max-height: 700px;
+.ug.hero{
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +10,11 @@
     text-align: center;
     position: relative;
     z-index: 1;
+    max-width: 75rem;
+    margin: 8rem 0;
+    @include breakpoint( 900px ) {
+      padding: 0 2rem;
+    }
   }
   .tint{
     height: 100%;
