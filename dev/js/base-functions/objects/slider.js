@@ -7,8 +7,9 @@ function ug_sliderDefaults() {
 
   $(".ug.slider").each( function() {
 
-    $(this).find(".slide-wrapper").find(".slide-item").first().addClass("active");
+    $(this).find(".slide-wrapper").find(".slide").first().addClass("active");
     $(this).attr("slide-shown", "0");
+    $(this).find(".wrapper").velocity({ translateX: 0 });
 
     var arrows = $(this).find(".arrows"),
         slideShown = $(this).attr("slide-shown");
