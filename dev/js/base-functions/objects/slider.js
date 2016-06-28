@@ -1,7 +1,5 @@
 // Markup reflected in base-elements/slider.html
 
-// TODO: Resetting layout on resize, currently the buttons become disabled whenever the grid changes.
-
 // Setting some defaults for each slider
 function ug_sliderDefaults() {
 
@@ -83,15 +81,21 @@ function ug_sliderLayout(){
 
     if( self.find(".progress").length > 0  ) {
 
+      console.log("running?");
+
       $(".progress span").remove();
 
       var  slideCount = self.find(".slide").length;
 
-      console.log(slideCount);
 
       for ( var i = 0; i < slideCount; i++ ) {
         $("<span class='" + i+ "'></span>").appendTo(".progress");
       }
+
+      $(".ug.slider .progress span").click( function(){
+        console.log($(this));
+        ug_sliderShift($(this));
+      });
 
     }
 
@@ -111,6 +115,8 @@ function ug_sliderShift(arrow){
   arrows = self.find(".arrows"),
   progress = self.find(".progress"),
   clickedArrow = arrow.attr("class").split(" ")[0];
+
+  console.log(arrow);
 
   if( clickedArrow === "next" ){
 
@@ -152,7 +158,6 @@ function ug_sliderButtonSet(arrows, slider) {
 
     var slideShown = parseInt(slider.attr("slide-shown")),
         count = slider.find(".slide").length;
-        console.log(count);
 
     slider.find(".progress span").removeClass("active");
     slider.find(".progress ." + slideShown).addClass("active");
@@ -181,11 +186,6 @@ $(window).resize( function() {
 });
 
 $(".ug.slider .arrows a").click( function(e){
-  e.preventDefault();
-  ug_sliderShift($(this));
-});
-
-$(".ug.slider .progress span").click( function(e){
   e.preventDefault();
   ug_sliderShift($(this));
 });
