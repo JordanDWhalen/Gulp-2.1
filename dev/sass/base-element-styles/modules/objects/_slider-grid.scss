@@ -1,4 +1,4 @@
-.ug.grid-slider{
+.ug.slider-grid{
   background-color: $white;
   padding: 5rem;
   overflow: hidden;
@@ -33,7 +33,7 @@
     &.active{
       opacity: 1;
     }
-    .product{
+    .slide-item{
       opacity: 1;
     }
   }
