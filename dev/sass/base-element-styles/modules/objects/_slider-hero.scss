@@ -1,0 +1,12 @@
+.ug.hero.slider-hero{
+  position: relative;
+  transition: $transition;
+  .slide-wrapper {
+    overflow: hidden;
+    width: 100%;
+    .wrapper{
+      display: flex;
+      width: auto;
+    }
+  }
+}

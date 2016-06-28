@@ -23,10 +23,10 @@
     top: 0;
     left: 0;
   }
-  &.dark{
+  .content.dark{
     color: $white;
   }
-  &.light{
+  .content.light{
     color: $black;
   }
 }
