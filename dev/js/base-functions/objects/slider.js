@@ -2,6 +2,24 @@
 
 // TODO: Resetting layout on resize, currently the buttons become disabled whenever the grid changes.
 
+// Setting some defaults for each slider
+function ug_sliderDefaults() {
+
+  $(".ug.slider").each( function() {
+
+    $(this).find(".slide-wrapper").find(".slide-item").first().addClass("active");
+    $(this).attr("slide-shown", "0");
+
+    var arrows = $(this).find(".arrows"),
+        slideShown = $(this).attr("slide-shown");
+
+
+    ug_sliderDisabledButtons(arrows, $(this));
+
+  });
+
+}
+
 function ug_sliderLayout(){
 
   $(".ug.slider").each( function(index) {
@@ -10,14 +28,12 @@ function ug_sliderLayout(){
 
     var self = $(this),
     slideWrapper = self.find(".slide-wrapper"),
+    wrapper = self.find(".wrapper"),
+    arrows = self.find(".arrows"),
     count = slideWrapper.find(".slide").length,
     width = 100 * count + "%",
     sliderNumber = $(this).attr("class").split(" ").pop(),
     slides = $(".ug.slider." + sliderNumber + " .slide-wrapper a");
-
-    $(this).children(".arrows").children(".prev").addClass("disabled");
-
-    self.attr("slide-shown", "0");
 
     if( slides.parent().is(".slide") ) {
 
@@ -62,6 +78,9 @@ function ug_sliderLayout(){
       }
     }
 
+
+    ug_sliderDisabledButtons(arrows, $(this));
+
   });
 
 }
@@ -98,35 +117,46 @@ function ug_sliderShift(arrow){
 
   }
 
-  progress.children("a").removeClass("active");
-  progress.children("a:nth-of-type(" + (1 + slideShown) + ")").addClass("active");
+  // progress.children("a").removeClass("active");
+  // progress.children("a:nth-of-type(" + (1 + slideShown) + ")").addClass("active");
 
-  if( slideShown === 0 ){
-
-    arrows.children(".prev").addClass("disabled");
-
-  } else if ( (slideShown + 1) === count ) {
-
-    arrows.children(".next").addClass("disabled");
-
-  } else {
-
-    arrows.children().removeClass("disabled");
-
-  }
+  ug_sliderDisabledButtons(arrows, self);
 
 }
 
 function ug_sliderActiveSet() {
-  $(".ug.slider .slide-wrapper").each( function(){
+  $(".ug.slider").each( function(){
     var slideAmount = $(this).attr("slide-shown"),
     activeSlide = (slideAmount * -1 / 100) + 1,
     slideNumber = $(this).children().length;
 
-    $(this).children().children(".slide:nth-child(" + activeSlide + ")").addClass("active");
-
   });
 }
+
+function ug_sliderDisabledButtons(arrows, slider) {
+
+    var slideShown = parseInt(slider.attr("slide-shown")),
+        count = slider.find(".slide").length;
+        console.log(count);
+
+    if( slideShown === 0 ){
+
+      arrows.children(".prev").addClass("disabled");
+
+    } else if ( (slideShown + 1) === count ) {
+
+      arrows.children(".next").addClass("disabled");
+
+    } else {
+
+      arrows.children().removeClass("disabled");
+
+    }
+
+}
+
+ug_sliderLayout();
+ug_sliderDefaults();
 
 $(window).resize( function() {
   ug_sliderLayout();
@@ -136,6 +166,3 @@ $(".ug.slider .arrows a").click( function(e){
   e.preventDefault();
   ug_sliderShift($(this));
 });
-
-
-ug_sliderLayout();

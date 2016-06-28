@@ -68,6 +68,7 @@
     top: 50%;
     margin-top: -5rem;
     z-index: 2;
+    pointer-events: none;
     @include breakpoint(1015px) {
       position: static;
       padding: 2rem 3rem;
@@ -84,6 +85,7 @@
       display: block;
       padding: 0;
       border-radius: 0px;
+      pointer-events: all;
       @include breakpoint(1015px) {
         text-indent: 0px;
         width: 9rem;

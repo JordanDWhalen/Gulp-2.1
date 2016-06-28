@@ -41,10 +41,9 @@ gulp.task('vendor-js', function() {
 gulp.task('js', function() {
   return gulp.src(['dev/js/*.js',  'dev/js/**/*.js', '!dev/js/vendor/*.js'])
   .pipe(sourcemaps.init())
-  .pipe(concat('application.js'))
-  .pipe(uglify())
-  .pipe(sourcemaps.write())
   .on('error', handleError)
+  .pipe(concat('application.js'))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('public/js'));
 });
 
