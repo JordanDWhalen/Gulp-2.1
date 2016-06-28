@@ -144,6 +144,9 @@ header.ug.global{
         border-bottom: 1px solid $offwhite;
         color: $white;
         text-decoration: none;
+        &.active{
+          background-color: $highlight-l;
+        }
         &.dropdown {
           padding: 0;
           display: inline-flex;
@@ -154,6 +157,7 @@ header.ug.global{
             padding: 2rem;
             color: $white;
             text-decoration: none;
+
           }
         }
       }
@@ -193,7 +197,7 @@ header.ug.global{
           display: flex;
           flex-direction: column;
           flex-wrap: wrap;
-          padding: 2rem;
+          padding: 2rem 1.5rem;
           width: 100%;
         }
         a{
@@ -203,6 +207,9 @@ header.ug.global{
           border-bottom: 1px solid $offwhite;
           padding: 2rem;
           display: block;
+          &.active{
+            background-color: $highlight-l;
+          }
           &:last-of-type{
             border:none;
           }
