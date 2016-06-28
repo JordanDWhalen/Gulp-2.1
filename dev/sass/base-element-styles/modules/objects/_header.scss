@@ -26,7 +26,7 @@ header.ug.global{
       align-items: center;
       padding: 0 1rem;
       transition: $transition;
-      &:hover{
+      &:hover, &.active{
         background-color: $highlight;
         color: $white;
         a{
@@ -37,6 +37,13 @@ header.ug.global{
         padding: 0;
         a{
           padding: 1rem;
+          &:hover{
+            text-decoration: underline;
+          }
+          &.active{
+            font-weight: 900;
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -78,6 +85,9 @@ header.ug.global{
           flex-direction: column;
           a{
             color: $white;
+            &:first-of-type{
+              font-weight: 900;
+            }
           }
         }
       }

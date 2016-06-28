@@ -1,5 +1,7 @@
 .ug.slider{
   position: relative;
+  opacity: 0;
+  transition: $transition;
   .slide-container{
     position: relative;
     z-index: 2;

@@ -99,6 +99,8 @@ function ug_sliderLayout(){
 
     }
 
+    $(this).css("opacity", "1");
+
     ug_sliderButtonSet(arrows, $(this));
 
   });
