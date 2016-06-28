@@ -4,7 +4,7 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: 5rem;
+    padding: 5rem 5rem 0;
     @include breakpoint(1015px) {
       padding: 2rem 3rem;
     }
@@ -16,6 +16,7 @@
   .slide-wrapper {
     overflow: hidden;
     margin: 0 -1rem;
+    padding: 1rem 0;
     .wrapper{
       display: flex;
       width: auto;
@@ -66,7 +67,7 @@
     justify-content: space-between;
     position: absolute;
     top: 50%;
-    margin-top: -5rem;
+    margin-top: -2.5rem;
     z-index: 2;
     pointer-events: none;
     @include breakpoint(1015px) {
@@ -111,6 +112,23 @@
     }
     .disabled{
       pointer-events: none;
+    }
+  }
+  .progress{
+    display: flex;
+    justify-content: center;
+    span{
+      width: 1rem;
+      height: 1rem;
+      background-color: transparent;
+      border: 1px solid $highlight;
+      border-radius: 100%;
+      margin: 1rem;
+      cursor: pointer;
+      &.active{
+        background-color: $highlight;
+        pointer-events: none;
+      }
     }
   }
 }
