@@ -82,6 +82,7 @@ gulp.task('svg', function () {
       }
     }
   ))
+  .on('error', handleError)
   .pipe(gulp.dest("public/img/"));
 });
 
@@ -105,6 +106,7 @@ gulp.task('html', ['svg'],  function() {
     prefix: '@@',
     basepath: '@file'
   }))
+  .on('error', handleError)
   .pipe(newer('public/html/**/*.html'))
   .on('error', handleError)
   .pipe(gulp.dest('public/'));

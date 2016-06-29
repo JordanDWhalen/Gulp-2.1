@@ -1,32 +1,26 @@
-@@include('partials/header.html')
-
-
-   @@include('base-elements/objects/hero.html', {
-     "bg" : "img/bg.jpg",
-     "brightness": "dark",
-     "bg-color" : "rgba(0,0,0,0.25)",
-     "btn-classes": "lightbox-trigger",
-     "btn-attributes": "box='0'"
-   })
-
-   @@include('base-elements/objects/slider-hero.html')
+@@include('partials/html-start.html')
 
     <nav class="ug directory">
 
-    @@include('base-elements/components/directory-link.html', {
-      "template": "T2",
-      "page-name": "About Page"
-    })
+      <div class="logo" >
+        @@include("assets/logo.svg")
+      </div>
+
+      @@include('base-elements/components/directory-link.html', {
+        "template": "t1",
+        "page-name": "Template 1"
+      })
+
+      @@include('base-elements/components/directory-link.html', {
+        "template": "t2",
+        "page-name": "Template 2"
+      })
+
+      @@include('base-elements/components/directory-link.html', {
+        "template": "t3",
+        "page-name": "Template 3"
+      })
 
     </nav>
-
-    @@include('base-elements/objects/slider.html')
-
-    @@include('base-elements/objects/slider-grid.html')
-
-    @@include('base-elements/objects/lightbox.html', {
-      "count": "0"
-    })
-
 
 @@include('partials/footer.html')
