@@ -263,6 +263,9 @@ header.ug.global{
               color: $white;
               height: 4rem;
               width: 200px;
+              &:focus{
+                border-color: $white;
+              }
             }
 
           }
