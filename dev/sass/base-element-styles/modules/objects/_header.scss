@@ -246,6 +246,36 @@ header.ug.global{
           }
         }
       }
+      .search{
+        form{
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          input{
+            margin: 0;
+            &[type="button"]{
+              margin-right: -4rem;
+              width:4rem;
+              padding: 0;
+            }
+            &[type="text"]{
+              background-color: transparent;
+              color: $white;
+              height: 4rem;
+              width: 200px;
+            }
+
+          }
+          span{
+            width: 4rem;
+            height: 4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+          }
+        }
+      }
     }
     &.open{
       background-color: $highlight;
