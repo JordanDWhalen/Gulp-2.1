@@ -77,19 +77,15 @@ function ug_sliderLayout(){
       }
     }
 
-    // setTimeout(function(){
-
     if( self.find(".progress").length > 0  ) {
 
-      console.log("running?");
-
-      $(".progress span").remove();
+      self.find(".progress span").remove();
 
       var  slideCount = self.find(".slide").length;
 
 
       for ( var i = 0; i < slideCount; i++ ) {
-        $("<span class='" + i+ "'></span>").appendTo(".progress");
+        $("<span class='" + i+ "'></span>").appendTo(self.find(".progress"));
       }
 
       $(".ug.slider .progress span").click( function(){

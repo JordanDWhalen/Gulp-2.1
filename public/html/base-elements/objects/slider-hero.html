@@ -1,18 +1,28 @@
 <section class="ug hero slider-hero">
   <div class="slide-wrapper">
     <div class="wrapper">
+
       @@include('../components/slider-hero-slide.html', {
         "bg" : "img/bg.jpg",
-        "brightness": "dark",
+        "brightness": "light",
         "bg-color" : "rgba(0,0,0,0.25)",
         "btn-classes": "lightbox-trigger",
         "btn-attributes": "box='0'"
       })
+
+      @@include('../components/slider-hero-slide.html', {
+        "bg" : "img/bg.jpg",
+        "brightness": "dark",
+        "bg-color" : "rgba(255,255,255,0.25)",
+        "btn-classes": "lightbox-trigger",
+        "btn-attributes": "box='0'"
+      })
+
     </div>
   </div>
   <div class="arrows">
-    <a href="#" class="prev"></a>
-    <a href="#" class="next"></a>
+    <a href="#" class="prev arrow disabled"></a>
+    <a href="#" class="next arrow disabled"></a>
   </div>
   <div class="progress">
 

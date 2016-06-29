@@ -9,4 +9,80 @@
       width: auto;
     }
   }
+  .arrows{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -2.5rem;
+    z-index: 2;
+    pointer-events: none;
+
+    @include breakpoint(800px) {
+      padding: 0 2rem;
+      top: auto;
+      bottom: 2.5rem;
+    }
+
+    .arrow{
+      height: 5rem;
+      width: 5rem;
+      display: block;
+      padding: 0;
+      border-radius: 0px;
+      pointer-events: all;
+      &.disabled{
+        pointer-events: none;
+        opacity: .5;
+      }
+      @include breakpoint(1015px) {
+        text-indent: 0px;
+        width: 9rem;
+        height: auto;
+        border-radius: 3px;
+        padding: 1rem 2rem;
+        line-height: 2rem;
+        &.prev{
+          text-align: right;
+          &:after{
+            width: 3rem;
+          }
+        }
+        &.next{
+          text-align: left;
+          &:after{
+            width: 3rem;
+            right: 0;
+            left: auto;
+          }
+        }
+      }
+    }
+
+  }
+  .progress{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    bottom: 2rem;
+    width: 100%;
+    left: 0;
+    span{
+      width: 1rem;
+      height: 1rem;
+      background-color: transparent;
+      border: 1px solid $white;
+      border-radius: 100%;
+      margin: 1rem;
+      cursor: pointer;
+      &.active{
+        background-color: $white;
+        pointer-events: none;
+      }
+    }
+  }
+
 }
