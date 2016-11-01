@@ -1,3 +1,4 @@
 .publish
-public/.DS_Store
+public/*
 .powder
+node_modules

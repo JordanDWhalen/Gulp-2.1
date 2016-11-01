@@ -51,35 +51,36 @@ gulp.task('svg', function () {
   return gulp.src('dev/**/*.svg')
   .pipe(svg(
     {
-      "dest": ".",
-      shape: {
-        id: {
-          generator: function(name) {
-            gutil.log(name);
-            gutil.log(this.whitespace);
-            gutil.log(path.basename(name.replace(/\s+/g, this.whitespace), '.svg'));
-            return path.basename(name.replace(/\s+/g, this.whitespace), '.svg');
-          }
-        },
-        dimension       : {         // Set maximum dimensions
-          maxWidth    : 32,
-          maxHeight   : 32
-        },
-        spacing         : {         // Add padding
-          padding     : 10
-        },
-        dest : 'svg'    // Keep the intermediate files
-      },
-      mode                : {
-        symbol : {
-          dest : '.',
-          sprite : 'sprite.symbol.svg'
-        },     // Activate the «symbol» mode
-        stack : {
-          dest: ".",
-          sprite : 'sprite.stack.svg'
-        }
-      }
+      // Enable this to add in support for sprites.
+      // "dest": ".",
+      // shape: {
+      //   id: {
+      //     generator: function(name) {
+      //       gutil.log(name);
+      //       gutil.log(this.whitespace);
+      //       gutil.log(path.basename(name.replace(/\s+/g, this.whitespace), '.svg'));
+      //       return path.basename(name.replace(/\s+/g, this.whitespace), '.svg');
+      //     }
+      //   },
+      //   dimension       : {         // Set maximum dimensions
+      //     maxWidth    : 32,
+      //     maxHeight   : 32
+      //   },
+      //   spacing         : {         // Add padding
+      //     padding     : 10
+      //   },
+      //   dest : 'svg'    // Keep the intermediate files
+      // },
+      // mode                : {
+      //   symbol : {
+      //     dest : '.',
+      //     sprite : 'sprite.symbol.svg'
+      //   },     // Activate the «symbol» mode
+      //   stack : {
+      //     dest: ".",
+      //     sprite : 'sprite.stack.svg'
+      //   }
+      // }
     }
   ))
   .on('error', handleError)
@@ -101,13 +102,13 @@ gulp.task('img', function() {
 });
 
 gulp.task('html', ['svg'],  function() {
-  return gulp.src('public/html/*.html')
+  return gulp.src('dev/html/*.html')
   .pipe(fileinclude({
     prefix: '@@',
     basepath: '@file'
   }))
   .on('error', handleError)
-  .pipe(newer('public/html/**/*.html'))
+  .pipe(newer('dev/html/**/*.html'))
   .on('error', handleError)
   .pipe(gulp.dest('public/'));
 });
@@ -123,12 +124,12 @@ gulp.task('connect', function() {
   gulp.watch(['dev/js/**/*.js', '!dev/js/vendor/*.js'], ['js']);
   gulp.watch('dev/img/**/*.{jpg,jpeg,png,gif,ico}', ['img']);
   gulp.watch('dev/img/**/*.svg', ['svg']);
-  gulp.watch('public/img/**/*.svg', ['html']);
-  gulp.watch('public/html/**/*.html', ['html']);
+  gulp.watch('dev/html/*.html', ['html']);
+  gulp.watch('dev/html/**/*.html', ['html']);
 
   livereload.listen();
 
-  gulp.watch(['public/*.html', 'public/js/*.js', 'dev/img/**/*.svg', '.{jpg,jpeg,png,gif,ico}', 'public/css/*.css']).on('change', livereload.changed);
+  gulp.watch(['public/*.html', 'public/js/*.js', '.{jpg,jpeg,png,gif,ico,svg}', 'public/css/*.css']).on('change', livereload.changed);
 
   connect.server({
     root: 'public/',
