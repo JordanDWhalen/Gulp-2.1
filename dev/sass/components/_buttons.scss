@@ -20,7 +20,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  transition: $transition;
+  transition: $default-transition;
 
   &:hover{
     color: $white;

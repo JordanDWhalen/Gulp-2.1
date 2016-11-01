@@ -1,10 +1,7 @@
 @charset "UTF-8";
 
 @import "vendor/*";
-@import "base/*";
-@import "base-element-styles/*/*/*";
-@import "base-element-styles/*/*";
-@import "base-element-styles/*";
+@import "base/**/*";
 @import "components/*";
 @import "objects/*";
 @import "pages/*";
