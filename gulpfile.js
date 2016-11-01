@@ -114,8 +114,10 @@ gulp.task('html', ['svg'],  function() {
 });
 
 gulp.task('open', function(){
-  gulp.src('')
-  .pipe(open({ uri: 'http://localhost:8080'}));
+  setTimeout(function(){
+    gulp.src('')
+    .pipe(open({ uri: 'http://localhost:8080'}));
+  }, 3000);
 });
 
 gulp.task('connect', function() {
