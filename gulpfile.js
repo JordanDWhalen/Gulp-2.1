@@ -19,6 +19,8 @@ path = require('path');
 
 gulp.task('css', function() {
   return gulp.src('dev/sass/application.scss')
+  .pipe(flatten())
+  .pipe(newer('dev/sass/**/*'))
   .pipe(sourcemaps.init())
   .pipe(globbing({extensions: '.scss'}))
   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
