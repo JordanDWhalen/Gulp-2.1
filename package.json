@@ -16,6 +16,7 @@
     "gulp-open": "^2.0.0",
     "gulp-path": "^3.0.3",
     "gulp-sass": "*",
+    "gulp-file-include": "*",
     "gulp-server-livereload": "^1.8.1",
     "gulp-sourcemaps": "*",
     "gulp-svg-sprite": "^1.3.1",
