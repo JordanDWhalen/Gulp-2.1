@@ -119,7 +119,7 @@ gulp.task('open', function(){
   setTimeout(function(){
     gulp.src('')
     .pipe(open({ uri: 'http://localhost:8080'}));
-  }, 3000);
+  }, 5000);
 });
 
 gulp.task('connect', function() {
