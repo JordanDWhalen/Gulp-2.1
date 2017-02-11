@@ -28,6 +28,7 @@ gulp.task('css', function() {
   .pipe(sourcemaps.write())
   .on('error', handleError)
   .pipe(gulp.dest('public/css'));
+  // .pipe(gulp.dest('../wp-content/themes/sk-cms/assets/css'));
 });
 
 gulp.task('vendor-js', function() {
@@ -38,6 +39,7 @@ gulp.task('vendor-js', function() {
   .pipe(sourcemaps.write())
   .on('error', handleError)
   .pipe(gulp.dest('public/js'));
+  // .pipe(gulp.dest('../wp-content/themes/sk-cms/assets/js'));
 });
 
 gulp.task('js', function() {
@@ -47,6 +49,7 @@ gulp.task('js', function() {
   .pipe(concat('application.js'))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('public/js'));
+  // .pipe(gulp.dest('../wp-content/themes/sk-cms/assets/js'));
 });
 
 // gulp.task('svg', function () {
@@ -86,13 +89,13 @@ gulp.task('js', function() {
 //     }
 //   ))
 //   .on('error', handleError)
-//   .pipe(gulp.dest("public/img/"));
+//   .pipe(gulp.dest("public/media/"));
 // });
 
-gulp.task('img', function() {
-  return gulp.src('dev/img/**/*.{jpg,jpeg,png,gif,ico,svg}')
+gulp.task('media', function() {
+  return gulp.src('dev/media/**/*.{jpg,jpeg,png,gif,ico,svg}')
   .pipe(flatten())
-  .pipe(newer('public/img'))
+  .pipe(newer('public/media'))
   .pipe(imagemin({
     optimizationLevel: 5,
     progressive: true,
@@ -100,7 +103,8 @@ gulp.task('img', function() {
     svgoPlugins: []
   }))
   .on('error', handleError)
-  .pipe(gulp.dest('public/img'));
+  .pipe(gulp.dest('public/media'));
+  // .pipe(gulp.dest('../wp-content/themes/sk-cms/assets/media'));
 });
 
 gulp.task('html',  function() {
@@ -126,7 +130,7 @@ gulp.task('connect', function() {
   gulp.watch('dev/sass/**/**/*.scss', ['css']);
   gulp.watch('dev/js/vendor/*.js', ['vendor-js']);
   gulp.watch(['dev/js/**/*.js', '!dev/js/vendor/*.js'], ['js']);
-  gulp.watch('dev/img/**/*.{jpg,jpeg,png,gif,ico,svg}', ['img']);
+  gulp.watch('dev/media/**/*.{jpg,jpeg,png,gif,ico,svg}', ['media']);
   gulp.watch('dev/html/*.html', ['html']);
   gulp.watch('dev/html/**/*.html', ['html']);
 
@@ -149,4 +153,4 @@ function handleError(err) {
   this.emit('end');
 }
 
-gulp.task('default', ['css', 'vendor-js', 'js', 'img', 'html', 'connect', 'open']);
+gulp.task('default', ['css', 'vendor-js', 'js', 'media', 'html', 'connect', 'open']);
