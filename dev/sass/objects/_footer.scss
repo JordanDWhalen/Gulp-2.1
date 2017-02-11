@@ -1,0 +1,77 @@
+.footer-global{
+  background-color: $offwhite;
+  padding: 2rem;
+  .container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .heading{
+    font-family: $sans;
+    font-size: 1.6rem;
+    margin: 0 0 1rem;
+  }
+  &_social{
+    > svg{
+      width: 100px;
+    }
+    &-links{
+      display: flex;
+      margin-top: 1rem;
+      a{
+        margin-right: 1rem;
+        cursor: pointer;
+        &:hover{
+          svg{
+            path, g, rect{
+              fill: $main;
+            }
+          }
+        }
+      }
+      svg{
+        width: 3rem;
+        height: 3rem;
+        display: block;
+        pointer-events: none;
+        path, g, rect{
+          fill: $black;
+          transition: .25s all ease;
+        }
+      }
+    }
+  }
+  &_email{
+    text-align: center;
+
+    form{
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      input{
+        margin: 0;
+        display: inline-block;
+        font-family: $sans;
+        border-radius: 4px 0 0 4px;
+        border: none;
+      }
+      button{
+        margin: 0;
+        padding: .5rem 1rem;
+        line-height: 2rem;
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+  &_contact{
+    a{
+      display: block;
+      text-align: right;
+      font-size: 1.4rem;
+      color: $grey-d;
+      text-decoration: none;
+      &:hover{
+        color: $main;
+      }
+    }
+  }
+}
