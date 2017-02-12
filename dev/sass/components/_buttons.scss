@@ -7,7 +7,7 @@
   background-color: $highlight;
   text-align: center;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 38px;
   letter-spacing: .1rem;
   text-transform: uppercase;
@@ -40,6 +40,12 @@
     }
   }
 
+  &.white{
+    color: $grey-d;
+    background-color: $white;
+    border-color: $white;
+  }
+
   &.hollow{
     color: $highlight;
     background-color: transparent;
@@ -49,11 +55,28 @@
       background-color: transparentize($highlight, .5);
     }
 
-    &:focus{
+    &:active{
       color: $white;
       background-color: transparentize($highlight, .5);
       transform: translateY(3px);
     }
+
+    &.white{
+      background-color: transparent;
+      color: $white;
+
+      &:hover{
+        background-color: transparentize($white, .5);
+      }
+
+      &:active{
+        color: $grey-d;
+        background-color: $white;
+        border-color: $white;
+      }
+
+    }
+
   }
 
   &.disabled{

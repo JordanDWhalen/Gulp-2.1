@@ -73,3 +73,37 @@ label.box-wrap {
   align-items: center;
   justify-content: center;
 }
+
+.input{
+  width: 100%;
+  position: relative;
+  margin-bottom: 2.75rem;
+  &:last-of-type{
+    margin-bottom: 2rem;
+  }
+  input, textarea{
+    width: 100%;
+    border: 1px solid $white;
+    background-color: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+    & + label{
+      font-weight: 400;
+      position: absolute;
+      top: .45rem;
+      left: 1rem;
+      color: $white;
+      pointer-events: none;
+    }
+    &:focus, &.filled{
+      &+label{
+        top: -2rem;
+        left: 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &-half{
+    width: calc(50% - 1rem;)
+  }
+}

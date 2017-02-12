@@ -52,46 +52,6 @@ gulp.task('js', function() {
   // .pipe(gulp.dest('../wp-content/themes/sk-cms/assets/js'));
 });
 
-// gulp.task('svg', function () {
-//   return gulp.src('dev/**/*.svg')
-//   .pipe(svg(
-//     {
-//       // Enable this to add in support for sprites.
-//       // "dest": ".",
-//       // shape: {
-//       //   id: {
-//       //     generator: function(name) {
-//       //       gutil.log(name);
-//       //       gutil.log(this.whitespace);
-//       //       gutil.log(path.basename(name.replace(/\s+/g, this.whitespace), '.svg'));
-//       //       return path.basename(name.replace(/\s+/g, this.whitespace), '.svg');
-//       //     }
-//       //   },
-//       //   dimension       : {         // Set maximum dimensions
-//       //     maxWidth    : 32,
-//       //     maxHeight   : 32
-//       //   },
-//       //   spacing         : {         // Add padding
-//       //     padding     : 10
-//       //   },
-//       //   dest : 'svg'    // Keep the intermediate files
-//       // },
-//       // mode                : {
-//       //   symbol : {
-//       //     dest : '.',
-//       //     sprite : 'sprite.symbol.svg'
-//       //   },     // Activate the «symbol» mode
-//       //   stack : {
-//       //     dest: ".",
-//       //     sprite : 'sprite.stack.svg'
-//       //   }
-//       // }
-//     }
-//   ))
-//   .on('error', handleError)
-//   .pipe(gulp.dest("public/media/"));
-// });
-
 gulp.task('media', function() {
   return gulp.src('dev/media/**/*.{jpg,jpeg,png,gif,ico,svg}')
   .pipe(flatten())
@@ -136,7 +96,7 @@ gulp.task('connect', function() {
 
   livereload.listen();
 
-  gulp.watch(['public/*.html', 'public/js/*.js', '.{jpg,jpeg,png,gif,ico,svg}', 'public/css/*.css']).on('change', livereload.changed);
+  gulp.watch(['public/*.html', 'dev/js/**/*.js', '.{jpg,jpeg,png,gif,ico,svg}', 'public/css/*.css']).on('change', livereload.changed);
 
   connect.server({
     root: 'public/',
