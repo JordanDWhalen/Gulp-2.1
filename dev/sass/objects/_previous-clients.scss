@@ -1,0 +1,19 @@
+.previous-clients{
+  padding: 3rem 0;
+  text-align: center;
+  background-color: $white;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    a{
+      width: calc(20% - 3rem);
+      position: relative;
+      img{
+        display: block;
+        max-width: 100%;
+      }
+    }
+  }
+}

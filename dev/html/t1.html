@@ -1,3 +1,57 @@
-@@include('partials/header.html')
+@@include('partials/header.html', {
+  "page_class": "home-page"
+})
+
+<section class="hero hero-video hero-video">
+  <div class="container">
+    <h1 class="heading hero-heading" data-shadow="Basic callout for what makes the client unique">Basic callout for what makes the client unique</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+    <div class="hero-controls">
+      <a href="#" class="button">Watch the Video</a>
+      <a href="#" class="button hollow white">Book Simon</a>
+    </div>
+  </div>
+  <div class="hero-background hero-background_video">
+    <video  autoplay="autoplay" loop="loop" poster="media/bgvid.jpg">
+    	<source src="media/bgvid.m4v" type="video/mp4" />
+    	<source src="media/bgvid.webm" type="video/webm" />
+    	<object type="application/x-shockwave-flash" data="media/flashfox.swf" width="1280" height="720">
+      	<param name="movie" value="media/flashfox.swf" />
+      	<param name="allowFullScreen" value="true" />
+      	<param name="flashVars" value="autoplay=true&amp;controls=false&amp;fullScreenEnabled=false&amp;posterOnEnd=true&amp;loop=false&amp;poster=media/bgvid.jpg&amp;src=bgvid.m4v" />
+      	<embed src="media/flashfox.swf" width="1280" height="720" style="position:relative;"  flashVars="autoplay=true&amp;controls=false&amp;fullScreenEnabled=false&amp;posterOnEnd=true&amp;loop=false&amp;poster=media/bgvid.jpg&amp;src=bgvid.m4v"	allowFullScreen="true" wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_en" />
+      	<img alt="bgvid" src="media/bgvid.jpg" style="position:absolute;left:0;" width="100%" title="Video playback is not supported by your browser" />
+      </object>
+    </video>
+  </div>
+  <div class="hero-background hero-background_overlay"></div>
+</section>
+
+<section class="previous-clients">
+  <div class="container">
+    <a href="#">
+      <img src="media/logo_1.svg">
+    </a>
+    <a href="#">
+      <img src="media/logo_2.png">
+    </a>
+    <a href="#">
+      <img src="media/logo_3.png">
+    </a>
+    <a href="#">
+      <img src="media/logo_4.png">
+    </a>
+    <a href="#">
+      <img src="media/logo_5.png">
+    </a>
+  </div>
+  <a href="#" class="button hollow main">ADD YOUR COMPANY TO THIS LIST</a>
+</section>
+
+<section class="keynotes-section grid-slider">
+  
+</section>
+
+@@include('partials/cta-news.html')
 
 @@include('partials/footer.html')

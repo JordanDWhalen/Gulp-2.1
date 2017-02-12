@@ -1,14 +1,14 @@
-$black: #000;
+$black: #22181C;
 $white: #fff;
-$offwhite: #efefef;
+$offwhite: #F6E8EA;
 
-$grey-d: #333;
+$grey-d: #312F2F;
 $grey: #888;
 $grey-l: #ddd;
 
-$main:#0000FF;
-$secondary:#00FF00;
+$main:#FC7064;
+$secondary:#78D5D7;
 
-$highlight: #0000ff;
+$highlight: $secondary;
 $highlight-l: lighten($highlight, 15%);
 $highlight-d: darken($highlight, 15%);

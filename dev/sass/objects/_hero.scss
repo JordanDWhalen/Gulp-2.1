@@ -1,0 +1,79 @@
+.hero{
+  padding: 6rem 0;
+  height: auto;
+  min-height: 70vh;
+  position: relative;
+  overflow: hidden;
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    text-align: left;
+  }
+  p{
+    font-size: 2rem;
+    color: $white;
+    max-width: 70rem;
+  }
+  &-controls{
+    .button{
+      margin: 1rem;
+    }
+  }
+  &-heading{
+    font-family: $serif;
+    font-size: 7.25rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: $black;
+    max-width: 70rem;
+    &:after {
+      content: attr(data-shadow);
+      position: absolute;
+      max-width: 70rem;
+      top: 3px; left: -3px;
+      z-index: -1;
+      text-shadow: none;
+      background-image: linear-gradient( 45deg, transparent 45%, $main 45%, $main 55%, transparent 0 );
+      background-size: .05em .05em;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    &_overlay{
+      z-index: 0;
+      background-color: $grey-d;
+      opacity: .15;
+    }
+    &_video{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -10;
+      video{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // height: 100%;
+      }
+    }
+  }
+}
+
+.header-global + main > .hero{
+  padding-top: 15rem;
+}

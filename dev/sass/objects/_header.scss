@@ -3,19 +3,27 @@
   position: fixed;
   top: 0;
   width: 100%;
-
+  z-index: 100;
+  transition: .25s all ease;
   .container{
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid $grey-d;
+    border-bottom: 1px solid $white;
     padding-bottom: 2rem;
+    margin-bottom: -1px;
   }
-  &_logo{}
+  &_logo{
+    svg{
+      g, path{
+        fill: $white;
+      }
+    }
+  }
   &_nav{
     a{
       font-family: $sans;
       text-decoration: none;
-      color: $grey-d;
+      color: $white;
       margin-left: 2rem;
       cursor: pointer;
       &:hover{
@@ -25,6 +33,13 @@
         font-weight: 500;
         text-decoration: underline;
       }
+    }
+  }
+  &.scrolled{
+    border-bottom: 1px solid $grey-d;
+    background-color: transparentize($grey-d, .05);
+    .container{
+      border-bottom: 1px solid $grey-d;
     }
   }
 }

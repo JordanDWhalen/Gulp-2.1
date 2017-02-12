@@ -1,7 +1,8 @@
 .call-to-action{
-  padding: 4rem 0;
+  padding: 6rem 0;
   position: relative;
   background-color: $grey-d;
+  overflow: hidden;
   .container{
     display: flex;
     flex-wrap: wrap;
@@ -12,26 +13,48 @@
     > header{
       width: 100%;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
       .heading{
+        max-width: 60rem;
+        margin: 0 auto;
         font-size: 4rem;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
         font-family: $serif;
         color: $white;
       }
     }
-    > p{
-      width: calc(50% - 2rem);
+  }
+  &_content{
+    width: calc(50% - 2rem);
+    color: $white;
+  }
+  &_form{
+    margin:0;
+    width: calc(50% - 2rem);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    input, textarea{
       color: $white;
     }
-    > form{
-      margin:0;
-      width: calc(50% - 2rem);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      input, textarea{
-        color: $white;
-      }
+  }
+  &_image{
+    width: calc(50% - 2rem);
+    position: relative;
+    img{
+      width: 100%;
+      position: absolute;
+      top: 0;
+    }
+  }
+  &_support{
+    .container{
+      justify-content: center;
+      align-items: center;
+    }
+    .call-to-action_content{
+      text-align: center;
     }
   }
   &_background{
@@ -43,7 +66,7 @@
     height: 100%;
     background-position: center top;
     background-size: cover;
-    opacity: .35;
+    opacity: .5;
     // &-overlay{
     //   position: absolute;
     //   height: 100%;

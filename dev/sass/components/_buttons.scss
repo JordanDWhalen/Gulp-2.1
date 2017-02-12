@@ -13,7 +13,6 @@
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  border-radius: 4px;
   border: 1px solid $highlight;
   cursor: pointer;
   outline: 0;
@@ -38,6 +37,12 @@
       background-color: $highlight;
       border: 1px solid $highlight;
     }
+  }
+
+  &.main{
+    background-color: $main;
+    border-color: $main;
+    color: $white;
   }
 
   &.white{
@@ -77,6 +82,22 @@
 
     }
 
+    &.main{
+      background-color: transparent;
+      color: $main;
+      border-color: $main;
+
+      &:hover{
+        background-color: transparentize($main, .5);
+      }
+
+      &:active{
+        color: $white;
+        background-color: $main;
+        border-color: $main;
+      }
+
+    }
   }
 
   &.disabled{
