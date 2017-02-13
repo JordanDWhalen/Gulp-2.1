@@ -65,6 +65,10 @@
       background-size: 300% 100%;
       opacity: .25;
       animation: radiant 15s ease infinite;
+      &.gradient-dark{
+        opacity: .5;
+        background-image: linear-gradient( 45deg, $secondary, $tertiary );
+      }
     }
     &_video{
       position: fixed;
@@ -82,8 +86,9 @@
         // height: 100%;
       }
     }
+
   }
-  &-home{
+  &-full{
     min-height: 70vh;
     padding-bottom: 5rem;
     .hero{
@@ -96,5 +101,5 @@
 }
 
 .header-global + main > .hero{
-  padding-top: 12.5rem;
+  padding-top: 14.5rem;
 }

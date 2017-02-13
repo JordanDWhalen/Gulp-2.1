@@ -1,0 +1,19 @@
+.keynote-content{
+  padding: 6rem 0;
+  background-color: $offwhite;
+  .container{
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .general-content{
+    max-width: calc(60% - 1rem);
+  }
+  .keynote-quote{
+    max-width: calc(40% - 1rem);
+    blockquote{
+      border: 1px solid $secondary;
+      padding: 2rem;
+    }
+  }
+}

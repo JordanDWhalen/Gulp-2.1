@@ -62,11 +62,13 @@ blockquote{
   line-height: 1.4;
   &:before{
     content: "\201C";
-    color: $grey-l;
+    color: $grey-d;
     position: absolute;
     font-size: 10rem;
     top: -5rem;
     left: -2rem;
+    z-index: 10;
+    font-family: $serif;
   }
 }
 

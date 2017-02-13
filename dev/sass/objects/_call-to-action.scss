@@ -76,18 +76,6 @@
     background-position: center top;
     background-size: cover;
     opacity: .5;
-    // &-overlay{
-    //   position: absolute;
-    //   height: 100%;
-    //   width: 100%;
-    //   top: 0;
-    //   left: 0;
-    //   z-index: 2;
-    //   background-image: linear-gradient( 45deg, blue, red );
-    //   background-size: 300% 100%;
-    //   opacity: .25;
-    //   animation: radiant 15s ease infinite;
-    // }
   }
   &_news{
     .heading:after {
@@ -112,6 +100,57 @@
     }
     .heading:after {
       content: attr(data-cta-shadow-support);
+    }
+  }
+  &_testimonials{
+    background-color: transparent;
+    header{
+      margin-bottom: 1rem;
+    }
+    .container{
+      justify-content: center;
+      align-items: center;
+    }
+    .heading{
+      color: $grey-d;
+      &:after {
+        content: attr(data-cta-shadow-testimonials);
+        background-image: linear-gradient( 45deg, transparent 45%, $main 45%, $main 55%, transparent 0 );
+      }
+    }
+    .call-to-action{
+      &_content{
+        text-align: center;
+        width: 80rem;
+        blockquote{
+          margin-bottom: 0;
+        }
+      }
+      &_background{
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        background-position: center top;
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: 1;
+        filter: grayscale(1);
+        &_overlay{
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          background-color: $white;
+          opacity: .75;
+          animation: radiant 15s ease infinite;
+        }
+      }
     }
   }
   &_book{
