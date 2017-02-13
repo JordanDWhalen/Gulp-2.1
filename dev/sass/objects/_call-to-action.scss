@@ -112,6 +112,15 @@
           margin: 0 auto;
         }
       }
+      &_content{
+        margin-bottom: 3rem;
+      }
+    }
+    &_single{
+      background-image: linear-gradient( -45deg,$main, $secondary, $tertiary );
+      header{
+        margin-bottom: 1rem;
+      }
     }
   }
   &_support{

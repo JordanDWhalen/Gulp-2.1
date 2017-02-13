@@ -17,10 +17,12 @@
     width: 100%;
     height: auto;
     min-height: 50vh;
+    padding: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: $offwhite;
+    flex-wrap: wrap;
     a{
       margin: 1rem;
     }

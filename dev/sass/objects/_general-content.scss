@@ -31,4 +31,10 @@
     font-size: 1.8rem;
     text-transform: uppercase;
   }
+  &_full{
+    font-size: 170%;
+    p{
+      max-width: 100%;
+    }
+  }
 }

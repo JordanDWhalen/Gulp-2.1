@@ -11,6 +11,9 @@
       .alignleft, .alignright{
         max-width: 50%;
       }
+      &_full{
+        max-width: 100%;
+      }
     }
     .twitter-timeline{
       max-width: calc(40% - 2rem);
