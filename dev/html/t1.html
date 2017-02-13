@@ -5,8 +5,8 @@
     <h1 class="heading hero-heading" data-shadow="Basic callout for what makes the client unique">Basic callout for what makes the client unique</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
     <div class="hero-controls">
-      <a href="#" class="button main">Watch the Video</a>
-      <a href="#" class="button hollow white">Book Simon</a>
+      <a href="#" class="button bold main">Watch the Video</a>
+      <a href="#" class="button bold hollow white">Book Simon</a>
     </div>
   </div>
   <div class="hero-background hero-background_video">
@@ -47,11 +47,8 @@
         <img src="media/logo_6.png">
       </a>
     </nav>
-    <a href="#" class="button secondary bold">Add your company to this list</a>
   </div>
 </section>
-
-@@include('partials/cta-news.html')
 
 <section class="keynote-list">
   <div class="container">
@@ -61,28 +58,38 @@
     </header>
     <a href="#" class="keynote-list_item">
       <img src="media/keynote-list_item-1.jpg" alt="">
-      <h5 class="keynote-list_item-title">Simon Keith White House Organ Summit Individual Clip</h5>
+      <div class="content">
+        <h5 class="keynote-list_item-title"><span>Simon Keith White House Organ Summit Individual Clip</span></h5>
+        <time>Feb 20th, 2017</time>
+      </div>
     </a>
     <a href="#" class="keynote-list_item">
       <img src="media/keynote-list_item-2.jpg" alt="">
-      <h5 class="keynote-list_item-title">Simon Keith White House Organ Summit Individual Clip</h5>
+      <div class="content">
+        <h5 class="keynote-list_item-title"><span>Simon Keith White House Organ Summit Individual Clip</span></h5>
+        <time>Feb 20th, 2017</time>
+      </div>
     </a>
     <a href="#" class="keynote-list_item">
       <img src="media/keynote-list_item-3.jpg" alt="">
-      <h5 class="keynote-list_item-title">Simon Keith White House Organ Summit Individual Clip</h5>
+      <div class="content">
+        <h5 class="keynote-list_item-title"><span>Simon Keith White House Organ Summit Individual Clip</span></h5>
+        <time>Feb 20th, 2017</time>
+      </div>
     </a>
     <a href="#" class="keynote-list_item">
       <img src="media/keynote-list_item-4.jpg" alt="">
-      <h5 class="keynote-list_item-title">Simon Keith White House Organ Summit Individual Clip</h5>
-    </a>
-    <a href="#" class="keynote-list_item">
-      <img src="media/keynote-list_item-5.jpg" alt="">
-      <h5 class="keynote-list_item-title">Simon Keith White House Organ Summit Individual Clip</h5>
+      <div class="content">
+        <h5 class="keynote-list_item-title"><span>Simon Keith White House Organ Summit Individual Clip</span></h5>
+        <time>Feb 20th, 2017</time>
+      </div>
     </a>
   </div>
-  <div class="keynote-list-background" style="background-image:url(media/cta-3.jpg)"></div>
+  <div class="keynote-list-background"></div>
   <div class="keynote-list-background keynote-list-background_overlay"></div>
 </section>
+
+@@include('partials/cta-event.html')
 
 <section class="press-list">
   <div class="container">
@@ -143,10 +150,10 @@
       </a>
     </div>
   </div>
-  <div class="press-list-background" style="background-image:url(media/cta-3.jpg)"></div>
-  <div class="press-list-background press-list-background_overlay"></div>
+  <div class="press-list_background" style="background-image:url(media/cta-3.jpg)"></div>
+  <div class="press-list_background press-list_background_overlay"></div>
 </section>
 
-@@include('partials/cta-event.html')
+@@include('partials/cta-news.html')
 
 @@include('partials/footer.html')

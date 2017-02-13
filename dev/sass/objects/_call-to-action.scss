@@ -81,10 +81,37 @@
     .heading:after {
       content: attr(data-cta-shadow-news);
     }
+    // .container{
+    //   flex-direction: column;
+    //   align-items: center;
+    //   justify-content: center;
+    // }
+    .call-to-action{
+      // &_form, &_content{
+      //   width: 60rem;
+      // }
+      &_background{
+        background-image: linear-gradient( -45deg,$main, $secondary, $tertiary );
+      }
+    }
   }
   &_event{
     .heading:after {
       content: attr(data-cta-shadow-event);
+    }
+    .container{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .call-to-action{
+      &_form, &_content{
+        width: 60rem;
+        text-align: center;
+        button{
+          margin: 0 auto;
+        }
+      }
     }
   }
   &_support{

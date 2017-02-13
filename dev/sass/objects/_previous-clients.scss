@@ -1,12 +1,12 @@
 .previous-clients{
   background-color: transparentize($white, .25);
-  padding-bottom: 5rem;
   .container{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 0;
   }
   .heading{
     font-size: 2rem;
@@ -15,9 +15,6 @@
     letter-spacing: .05rem;
     color: $black;
     margin: 0;
-  }
-  .button{
-    margin: 0 auto;
   }
   header{
     width: 100%;
@@ -33,7 +30,7 @@
     flex-wrap: wrap;
     a{
       width: calc(16.66666667% - 3rem);
-      margin: 0 1.5rem 1.5rem;
+      margin: 0 1.5rem;
       position: relative;
       img{
         display: block;

@@ -1,6 +1,6 @@
 .footer-global{
   padding: 4rem 0 6rem;
-  background-color: transparentize($grey-d, .5);
+  background-color: $black;
   footer{
     @extend .container;
     margin-bottom: 0;

@@ -11,15 +11,19 @@ var $video  = $('.hero video'),
     $window = $(window);
 
 $(window).resize( function() {
-  var height = $window.height();
-  $video.css('height', height);
 
-  var videoWidth = $video.width(),
-      windowWidth = $window.width(),
-      marginLeftAdjust =   (windowWidth - videoWidth) / 2;
+  if($video){
+    var height = $window.height();
+    $video.css('height', height);
 
-  $video.css({
-      'height': height,
-      'marginLeft' : marginLeftAdjust
-  });
+    var videoWidth = $video.width(),
+        windowWidth = $window.width(),
+        marginLeftAdjust =   (windowWidth - videoWidth) / 2;
+
+    $video.css({
+        'height': height,
+        'marginLeft' : marginLeftAdjust
+    });
+  }
+  
 });
