@@ -1,25 +1,50 @@
 .footer-global{
-  background-color: $offwhite;
-  padding: 2rem;
+  padding: 4rem 0 6rem;
+  footer{
+    @extend .container;
+    margin-bottom: 0;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid $white;
+    color: $white;
+  }
   .container{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
   }
   .heading{
     font-family: $sans;
     font-size: 1.6rem;
     margin: 0 0 1rem;
+    color: $grey-d;
+    text-transform: uppercase;
+    font-weight: 500;
   }
   &_social{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     > svg{
       width: 100px;
+      path, g{
+        fill: $white;
+      }
     }
     &-links{
       display: flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 1rem;
       a{
-        margin-right: 1rem;
+        margin: 0 1rem;
         cursor: pointer;
+        svg{
+          path, g, rect{
+            fill: $white;
+          }
+        }
         &:hover{
           svg{
             path, g, rect{
@@ -42,7 +67,6 @@
   }
   &_email{
     text-align: center;
-
     form{
       margin: 1rem 0;
       display: flex;
@@ -51,27 +75,42 @@
         margin: 0;
         display: inline-block;
         font-family: $sans;
-        border-radius: 4px 0 0 4px;
-        border: none;
+        border-radius: 0;
+        border: 1px solid $white;
+        background: transparent;
+        margin-right: -1px;
+        color: $white;
+        &::placeholder{
+          color: $white;
+          opacity: .5;
+        }
       }
       button{
+        background-color: $secondary;
+        color: $white;
         margin: 0;
         padding: .5rem 1rem;
         line-height: 2rem;
-        border-radius: 0 4px 4px 0;
+        border-radius: 0;
+        border-color: $secondary;
       }
     }
   }
   &_contact{
+    .heading{
+      text-align: right;
+    }
     a{
       display: block;
       text-align: right;
       font-size: 1.4rem;
       color: $grey-d;
       text-decoration: none;
+      color: $white;
       &:hover{
         color: $main;
       }
     }
   }
+
 }
