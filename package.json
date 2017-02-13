@@ -1,6 +1,6 @@
 {
-  "name": "UG-Gulp",
-  "version": "2.0.0",
+  "name": "Slant-FED-Starter",
+  "version": "1.0.0",
   "devDependencies": {
     "connect-livereload": "^0.5.4",
     "gulp": "*",
