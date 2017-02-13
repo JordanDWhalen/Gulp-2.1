@@ -17,19 +17,21 @@
     font-size: 2rem;
     color: $white;
     max-width: 70rem;
+    margin-bottom: 1rem;
   }
   &-controls{
     .button{
-      margin: 1rem;
+      margin: 1rem 1rem 1rem 0;
     }
   }
   &-heading{
     font-family: $serif;
-    font-size: 7.25rem;
+    font-size: 6.25rem;
     font-weight: 100;
     text-transform: uppercase;
     color: $black;
     max-width: 70rem;
+    margin-bottom: 1rem;
     &:after {
       content: attr(data-shadow);
       position: absolute;
@@ -37,7 +39,7 @@
       top: 3px; left: -3px;
       z-index: -1;
       text-shadow: none;
-      background-image: linear-gradient( 45deg, transparent 45%, $main 45%, $main 55%, transparent 0 );
+      background-image: linear-gradient( 45deg, transparent 45%, $white 45%, $white 55%, transparent 0 );
       background-size: .05em .05em;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -72,8 +74,11 @@
       }
     }
   }
+  &-home{
+    padding-bottom: 5rem;
+  }
 }
 
 .header-global + main > .hero{
-  padding-top: 15rem;
+  padding-top: 12.5rem;
 }

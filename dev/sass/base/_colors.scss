@@ -6,9 +6,12 @@ $grey-d: #312F2F;
 $grey: #888;
 $grey-l: #ddd;
 
-$main:#FC7064;
-$secondary:#78D5D7;
+$main:#FD3254;
+$secondary:#3891A6;
+$tertiary: #7873A9;
 
-$highlight: $secondary;
+$blue: $main;
+
+$highlight: $main;
 $highlight-l: lighten($highlight, 15%);
 $highlight-d: darken($highlight, 15%);

@@ -45,6 +45,12 @@
     color: $white;
   }
 
+  &.secondary{
+    background-color: $secondary;
+    border-color: $secondary;
+    color: $grey-d;
+  }
+
   &.white{
     color: $grey-d;
     background-color: $white;
@@ -98,6 +104,23 @@
       }
 
     }
+
+    &.black{
+      background-color: transparent;
+      color: $black;
+      border-color: $black;
+
+      &:hover{
+        background-color: transparentize($black, .5);
+      }
+
+      &:active{
+        color: $white;
+        background-color: $black;
+        border-color: $black;
+      }
+    }
+
   }
 
   &.disabled{
@@ -107,6 +130,11 @@
       background-color: $highlight;
       border: 1px solid $highlight;
     }
+  }
+
+  &.bold{
+    font-size: 2rem;
+    padding: 1rem 2rem;
   }
 
 }
