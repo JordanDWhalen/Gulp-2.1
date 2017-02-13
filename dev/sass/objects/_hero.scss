@@ -1,7 +1,6 @@
 .hero{
   padding: 6rem 0;
   height: auto;
-  min-height: 70vh;
   position: relative;
   overflow: hidden;
   .container{
@@ -10,7 +9,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     position: relative;
-    z-index: 1;
+    z-index: 3;
     text-align: left;
   }
   p{
@@ -46,16 +45,26 @@
     }
   }
   &-background{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: -1;
+    z-index: -5;
+    background-position: center 25%;
+    background-size: cover;
     &_overlay{
-      z-index: 0;
-      background-color: $grey-d;
-      opacity: .15;
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background-image: linear-gradient( 45deg, red, orange, $tertiary );
+      background-size: 300% 100%;
+      opacity: .25;
+      animation: radiant 15s ease infinite;
     }
     &_video{
       position: fixed;
@@ -75,7 +84,14 @@
     }
   }
   &-home{
+    min-height: 70vh;
     padding-bottom: 5rem;
+    .hero{
+      &-background_overlay{
+        background-image: none;
+        background-color: $grey-d;
+      }
+    }
   }
 }
 
