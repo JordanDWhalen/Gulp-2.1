@@ -44,6 +44,16 @@
       -webkit-text-fill-color: transparent;
     }
   }
+  &-full{
+    min-height: 70vh;
+    padding-bottom: 5rem;
+    .hero{
+      &-background_overlay{
+        background-image: none;
+        background-color: $grey-d;
+      }
+    }
+  }
   &-background{
     position: fixed;
     top: 0;
@@ -69,6 +79,10 @@
         opacity: .5;
         background-image: linear-gradient( 45deg, $secondary, $tertiary );
       }
+      &.gradient-bright{
+        opacity: .75;
+        background-image: linear-gradient( 45deg, $secondary, $tertiary );
+      }
     }
     &_video{
       position: fixed;
@@ -88,16 +102,7 @@
     }
 
   }
-  &-full{
-    min-height: 70vh;
-    padding-bottom: 5rem;
-    .hero{
-      &-background_overlay{
-        background-image: none;
-        background-color: $grey-d;
-      }
-    }
-  }
+
 }
 
 .header-global + main > .hero{

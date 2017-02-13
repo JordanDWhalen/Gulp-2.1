@@ -7,10 +7,10 @@
     justify-content: space-between;
   }
   .general-content{
-    max-width: calc(60% - 1rem);
+    max-width: calc(60% - 2rem);
   }
   .keynote-quote{
-    max-width: calc(40% - 1rem);
+    max-width: calc(40% - 2rem);
     blockquote{
       border: 1px solid $secondary;
       padding: 2rem;

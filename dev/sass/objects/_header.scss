@@ -36,10 +36,20 @@
     }
   }
   &.scrolled{
-    border-bottom: 1px solid $grey-d;
-    background-color: transparentize($grey-d, .05);
+    border-bottom: 1px solid $white;
+    background-color: transparentize($white, .05);
     .container{
-      border-bottom: 1px solid $grey-d;
+      border-bottom: 1px solid $white;
+    }
+    .header-global_logo{
+      svg{
+        g, path{
+          fill: $main;
+        }
+      }
+    }
+    a{
+      color: $secondary;
     }
   }
 }

@@ -7,10 +7,13 @@
     align-items: flex-start;
     margin: 0 auto;
     .general-content{
-      max-width: 60%;
+      max-width: calc(60% - 2rem);
       .alignleft, .alignright{
         max-width: 50%;
       }
+    }
+    .twitter-timeline{
+      max-width: calc(40% - 2rem);
     }
   }
 }
