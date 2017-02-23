@@ -39,7 +39,10 @@ The standard starter template for development projects.
 
 ## Structure
 - dev: Folder containing all JavaScript and SCSS
-  - img: Folder for all uncompressed images.
+  - html: Uncompiled HTML files
+    - base-elements: Prepackaged HTML Modules easy to set up for a new project and reuse
+    - partials: New custom HTML partials specifically set up for this project
+  - media: Folder for all uncompressed media.
   - js: Folder for all JavaScript
     - base.js: Your default JS file for the project. Use this for any custom scripting.
     - vendor: Folder containing all default project js libraries. If you'd like to add a new JS library, place it in this folder.
@@ -54,9 +57,6 @@ The standard starter template for development projects.
   - css: Compiled SASS.
   - js: Compiled JS and libraries.
   - img: Compiled images.
-  - html: Uncompiled HTML files
-    - base-elements: Prepackaged HTML Modules easy to set up for a new project and reuse
-    - partials: New custom HTML partials specifically set up for this project
   - index.html: The default landing page for the project.
 
 ## Options
