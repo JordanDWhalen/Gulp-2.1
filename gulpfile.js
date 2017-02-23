@@ -15,11 +15,7 @@ fileinclude = require('gulp-file-include'),
 livereload = require('gulp-livereload'),
 filter    = require('gulp-filter'),
 gutil = require('gulp-util'),
-path = require('path'),
-
-cms_dir = 'ENTER_CMS_DIR_HERE',
-theme_dir = 'ENTER_THEME_DIR_HERE';
-
+path = require('path');
 
 gulp.task('css', function() {
   return gulp.src('dev/sass/application.scss')
@@ -31,8 +27,7 @@ gulp.task('css', function() {
   .pipe(autoprefixer({cascade: false}))
   .pipe(sourcemaps.write())
   .on('error', handleError)
-  .pipe(gulp.dest('public/css'))
-  .pipe(gulp.dest('../' + cms_dir + '/wp-content/themes/' + theme_dir + '/assets/css'));
+  .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('vendor-js', function() {
@@ -42,8 +37,7 @@ gulp.task('vendor-js', function() {
   .pipe(uglify())
   .pipe(sourcemaps.write())
   .on('error', handleError)
-  .pipe(gulp.dest('public/js'))
-  .pipe(gulp.dest('../' + cms_dir + '/wp-content/themes/' + theme_dir + '/assets/js'));
+  .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('js', function() {
@@ -52,8 +46,7 @@ gulp.task('js', function() {
   .on('error', handleError)
   .pipe(concat('application.js'))
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest('public/js'))
-  .pipe(gulp.dest('../' + cms_dir + '/wp-content/themes/' + theme_dir + '/assets/js'));
+  .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('media', function() {
@@ -67,8 +60,7 @@ gulp.task('media', function() {
     svgoPlugins: []
   }))
   .on('error', handleError)
-  .pipe(gulp.dest('public/media'))
-  .pipe(gulp.dest('../' + cms_dir + '/wp-content/themes/' + theme_dir + '/assets/img'));
+  .pipe(gulp.dest('public/media'));
 });
 
 gulp.task('media-files', function() {
@@ -76,8 +68,7 @@ gulp.task('media-files', function() {
   .pipe(flatten())
   .pipe(newer('public/media'))
   .on('error', handleError)
-  .pipe(gulp.dest('public/media'))
-  .pipe(gulp.dest('../' + cms_dir + '/wp-content/themes/' + theme_dir + '/assets/img'));
+  .pipe(gulp.dest('public/media'));
 });
 
 gulp.task('html',  function() {
